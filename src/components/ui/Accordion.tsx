@@ -1,4 +1,8 @@
+"use client";
+
 import React, { useState } from "react";
+import { ChevronDownIcon } from "@/components/icons";
+import { focusRingClassName } from "@/constants/ui";
 import { cn } from "@/lib/utils";
 
 interface AccordionItem {
@@ -18,62 +22,58 @@ export const Accordion: React.FC<AccordionProps> = ({
   defaultOpen = null,
   allowMultiple = false,
 }) => {
-  const [openItems, setOpenItems] = useState<Set<string>>(
-    defaultOpen ? new Set([defaultOpen]) : new Set()
-  );
+  const [openItems, setOpenItems] = useState<Set<string>>(defaultOpen ? new Set([defaultOpen]) : new Set());
 
   const toggleItem = (id: string) => {
-    const newOpenItems = new Set(openItems);
+    const next = new Set(openItems);
 
-    if (newOpenItems.has(id)) {
-      newOpenItems.delete(id);
+    if (next.has(id)) {
+      next.delete(id);
     } else {
-      if (!allowMultiple) {
-        newOpenItems.clear();
-      }
-      newOpenItems.add(id);
+      if (!allowMultiple) next.clear();
+      next.add(id);
     }
 
-    setOpenItems(newOpenItems);
+    setOpenItems(next);
   };
 
   return (
     <div className="space-y-2">
-      {items.map((item) => (
-        <div
-          key={item.id}
-          className="border border-navy-200 rounded-lg overflow-hidden"
-        >
-          <button
-            onClick={() => toggleItem(item.id)}
-            className="w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-navy-50 transition-colors duration-200 text-left"
-          >
-            <span className="font-semibold text-navy-900">{item.title}</span>
-            <svg
-              className={cn(
-                "w-5 h-5 text-navy-600 transition-transform duration-200",
-                openItems.has(item.id) && "rotate-180"
-              )}
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 9l6 6 6-6"
-              />
-            </svg>
-          </button>
+      {items.map((item) => {
+        const isOpen = openItems.has(item.id);
+        const panelId = `${item.id}-panel`;
+        const buttonId = `${item.id}-trigger`;
 
-          {openItems.has(item.id) && (
-            <div className="px-6 py-4 bg-navy-50 border-t border-navy-200 text-navy-700">
-              {item.content}
-            </div>
-          )}
-        </div>
-      ))}
+        return (
+          <div key={item.id} className="overflow-hidden rounded-lg border border-navy-200">
+            <h3>
+              <button
+                id={buttonId}
+                type="button"
+                onClick={() => toggleItem(item.id)}
+                aria-expanded={isOpen}
+                aria-controls={panelId}
+                className={cn(
+                  "flex w-full items-center justify-between bg-white px-6 py-4 text-left transition-colors duration-200 hover:bg-navy-50",
+                  focusRingClassName
+                )}
+              >
+                <span className="font-semibold text-navy-900">{item.title}</span>
+                <ChevronDownIcon
+                  className={cn("h-5 w-5 text-navy-600 transition-transform duration-200", isOpen && "rotate-180")}
+                  aria-hidden="true"
+                />
+              </button>
+            </h3>
+
+            {isOpen ? (
+              <div id={panelId} role="region" aria-labelledby={buttonId} className="border-t border-navy-200 bg-navy-50 px-6 py-4 text-navy-700">
+                {item.content}
+              </div>
+            ) : null}
+          </div>
+        );
+      })}
     </div>
   );
 };

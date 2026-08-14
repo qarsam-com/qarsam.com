@@ -1,168 +1,100 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import Button from "@/components/ui/Button";
 import CTAButton from "@/components/ui/CTAButton";
 import { MenuIcon, CloseIcon, QarsamLogo, WhatsAppIcon, ArrowRightIcon } from "@/components/icons";
-import { NAV_ITEMS, CTA } from "@/lib/constants";
+import { primaryNavigation } from "@/constants/navigation";
+import { CTA } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
-/**
- * Header Component
- * Premium, responsive navigation with sticky behavior and mobile menu
- */
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Handle scroll behavior for header styling
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu when clicking on a link
-  const handleNavClick = () => {
-    setIsOpen(false);
-  };
-
-  // Prevent scroll when mobile menu is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
       document.body.style.overflow = "";
-    }
+    };
   }, [isOpen]);
 
-  return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-white/95 backdrop-blur-sm shadow-md border-b border-navy-100"
-          : "bg-white/50 backdrop-blur-sm"
-      )}
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
-          {/* Logo */}
-          <a
-            href="#"
-            className="flex-shrink-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-600 rounded-lg"
-            aria-label="Qarsam - Home"
-          >
-            <QarsamLogo className="h-8 w-auto md:h-10 text-navy-900" />
-          </a>
+  const handleNavClick = () => setIsOpen(false);
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8 lg:gap-10">
-            {NAV_ITEMS.slice(0, 5).map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "text-sm font-medium transition-colors duration-200",
-                  "text-navy-700 hover:text-electric-600",
-                  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-600 rounded-lg"
-                )}
-              >
+  return (
+    <header className={cn("sticky top-0 z-50 transition-all duration-300", isScrolled ? "border-b border-navy-100 bg-white/95 shadow-md backdrop-blur-sm" : "bg-white/90 backdrop-blur-sm") }>
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between md:h-20">
+          <Link href="/" className="rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2" aria-label="Qarsam home">
+            <QarsamLogo className="h-8 w-auto text-navy-900 md:h-10" />
+          </Link>
+
+          <nav aria-label="Primary navigation" className="hidden items-center gap-8 md:flex lg:gap-10">
+            {primaryNavigation.slice(0, 5).map((item) => (
+              <a key={item.href} href={item.href} className="rounded-lg text-sm font-medium text-navy-700 transition-colors hover:text-electric-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2">
                 {item.label}
               </a>
             ))}
           </nav>
 
-          {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center gap-3 lg:gap-4">
-            <CTAButton
-              text={CTA.primary}
-              variant="primary"
-              size="md"
-              icon={<WhatsAppIcon className="w-4 h-4" />}
-            />
+          <div className="hidden items-center gap-3 md:flex lg:gap-4">
+            <CTAButton text={CTA.primary} variant="primary" size="md" icon={<WhatsAppIcon className="h-4 w-4" />} />
             <Button
               variant="outline"
               size="md"
-              onClick={() => {
-                const contactSection = document.getElementById("contact");
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               className="flex items-center gap-2"
             >
               {CTA.secondary}
-              <ArrowRightIcon className="w-4 h-4" />
+              <ArrowRightIcon className="h-4 w-4" />
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-navy-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-600 transition-colors duration-200"
-            onClick={() => setIsOpen(!isOpen)}
+            type="button"
+            className="flex h-10 w-10 items-center justify-center rounded-lg transition-colors hover:bg-navy-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2 md:hidden"
+            onClick={() => setIsOpen((current) => !current)}
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
           >
-            {isOpen ? (
-              <CloseIcon className="w-6 h-6 text-navy-900" />
-            ) : (
-              <MenuIcon className="w-6 h-6 text-navy-900" />
-            )}
+            {isOpen ? <CloseIcon className="h-6 w-6 text-navy-900" /> : <MenuIcon className="h-6 w-6 text-navy-900" />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        <nav
-          id="mobile-menu"
-          className={cn(
-            "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
-            isOpen ? "max-h-screen" : "max-h-0"
-          )}
-        >
-          <div className="px-4 py-6 space-y-4 border-t border-navy-100 bg-white/50 backdrop-blur-sm">
-            {NAV_ITEMS.map((item) => (
+        <nav id="mobile-menu" aria-label="Mobile navigation" className={cn("overflow-hidden transition-all duration-300 ease-in-out md:hidden", isOpen ? "max-h-screen" : "max-h-0")}>
+          <div className="space-y-4 border-t border-navy-100 bg-white px-4 py-6">
+            {primaryNavigation.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className={cn(
-                  "block text-base font-medium transition-colors duration-200",
-                  "text-navy-700 hover:text-electric-600",
-                  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-electric-600 rounded-lg"
-                )}
+                className="block rounded-lg text-base font-medium text-navy-700 transition-colors hover:text-electric-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2"
                 onClick={handleNavClick}
               >
                 {item.label}
               </a>
             ))}
-
-            {/* Mobile CTA Buttons */}
-            <div className="pt-4 space-y-3 border-t border-navy-100">
-              <CTAButton
-                text={CTA.primary}
-                variant="primary"
-                size="md"
-                className="w-full justify-center"
-                icon={<WhatsAppIcon className="w-4 h-4" />}
-              />
+            <div className="space-y-3 border-t border-navy-100 pt-4">
+              <CTAButton text={CTA.primary} variant="primary" size="md" className="w-full justify-center" icon={<WhatsAppIcon className="h-4 w-4" />} />
               <Button
                 variant="outline"
                 size="md"
                 onClick={() => {
                   handleNavClick();
-                  const contactSection = document.getElementById("contact");
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: "smooth" });
-                  }
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="w-full justify-center flex items-center gap-2"
+                className="flex w-full items-center justify-center gap-2"
               >
                 {CTA.secondary}
-                <ArrowRightIcon className="w-4 h-4" />
+                <ArrowRightIcon className="h-4 w-4" />
               </Button>
             </div>
           </div>
