@@ -15,6 +15,18 @@ export interface ModalProps {
   className?: string;
 }
 
+/**
+ * Get all focusable elements within a container
+ */
+function getFocusableElements(container: HTMLElement | null): HTMLElement[] {
+  if (!container) return [];
+  return Array.from(
+    container.querySelectorAll<HTMLElement>(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    )
+  );
+}
+
 export default function Modal({ open, onClose, title, description, children, className }: ModalProps) {
   const titleId = useId();
   const descriptionId = useId();
@@ -29,13 +41,40 @@ export default function Modal({ open, onClose, title, description, children, cla
     document.body.style.overflow = "hidden";
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
+      if (event.key === "Escape") {
+        onClose();
+        return;
+      }
+
+      // Focus trap: cycle focus within modal on Tab
+      if (event.key === "Tab") {
+        const focusableElements = getFocusableElements(panelRef.current);
+        if (focusableElements.length === 0) return;
+
+        const activeElement = document.activeElement as HTMLElement;
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (event.shiftKey) {
+          // Shift + Tab: move focus backward
+          if (activeElement === firstElement) {
+            event.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          // Tab: move focus forward
+          if (activeElement === lastElement) {
+            event.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
     };
 
-    const firstFocusable = panelRef.current?.querySelector<HTMLElement>(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    );
-    firstFocusable?.focus();
+    const focusableElements = getFocusableElements(panelRef.current);
+    if (focusableElements.length > 0) {
+      focusableElements[0].focus();
+    }
 
     document.addEventListener("keydown", handleKeyDown);
     return () => {
