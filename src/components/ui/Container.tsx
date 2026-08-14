@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
-  maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl" | "full";
+  maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl" | "6xl" | "full";
 }
 
 const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
@@ -14,24 +14,16 @@ const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
       lg: "max-w-lg",
       xl: "max-w-xl",
       "2xl": "max-w-2xl",
+      "6xl": "max-w-6xl",
       full: "max-w-full",
     };
-
-    // For wider layouts, map to appropriate Tailwind max-width
-    // The base default of "6xl" is handled via a custom class
-    const widthClass =
-      maxWidth === "6xl"
-        ? "max-w-6xl"
-        : maxWidth in maxWidths
-        ? maxWidths[maxWidth as keyof typeof maxWidths]
-        : "max-w-6xl";
 
     return (
       <div
         ref={ref}
         className={cn(
           "mx-auto px-4 sm:px-6 lg:px-8",
-          widthClass,
+          maxWidths[maxWidth],
           className
         )}
         {...props}
