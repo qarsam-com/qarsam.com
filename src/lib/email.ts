@@ -17,7 +17,8 @@ export interface ContactFormData {
 export async function sendContactEmail(data: ContactFormData): Promise<void> {
   // Implementation will be done in Phase 3
   // This is a placeholder for the API call
-  console.log("Email service:", data);
+  // Note: Do not log full contact data due to PII sensitivity
+  void data; // Placeholder to avoid unused parameter warning
 }
 
 /**

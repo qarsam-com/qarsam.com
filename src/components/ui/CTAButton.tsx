@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import { getWhatsAppInquiryLink } from "@/lib/whatsapp";
+import { smoothScroll } from "@/lib/utils";
 
 interface CTAButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
@@ -30,7 +31,13 @@ const CTAButton = React.forwardRef<HTMLButtonElement, CTAButtonProps>(
 
     const handleLinkClick = () => {
       if (href) {
-        window.location.href = href;
+        // For hash links, use smooth scroll
+        if (href.startsWith("#")) {
+          smoothScroll(href.substring(1));
+        } else {
+          // For external links, open in new tab
+          window.open(href, "_blank");
+        }
       }
     };
 

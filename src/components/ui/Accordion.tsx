@@ -62,7 +62,7 @@ export const Accordion: React.FC<AccordionProps> = ({
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                d="M6 9l6 6 6-6"
               />
             </svg>
           </button>

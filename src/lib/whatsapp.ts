@@ -2,7 +2,9 @@
  * WhatsApp integration utilities
  */
 
-export const WHATSAPP_NUMBER = "+923001234567"; // To be updated
+// Read WhatsApp number from environment variable or use placeholder
+const WHATSAPP_NUMBER =
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+923001234567";
 
 /**
  * Generate WhatsApp link with message

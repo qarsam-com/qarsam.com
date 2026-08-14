@@ -1,23 +1,7 @@
 /**
  * Constants for the Qarsam website
+ * Note: Color palette is defined in lib/design-tokens.ts (single source of truth)
  */
-
-// Color palette as per WRDS
-export const COLORS = {
-  primary: {
-    navy: "#0f1523",
-    light: "#1a2340",
-  },
-  secondary: {
-    white: "#ffffff",
-  },
-  accent: {
-    electricBlue: "#0ea5e9",
-  },
-  success: {
-    whatsappGreen: "#22c55e",
-  },
-};
 
 // Brand information
 export const BRAND = {

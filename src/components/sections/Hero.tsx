@@ -122,8 +122,7 @@ const HeroSection: React.FC = () => {
                 <div
                   key={index}
                   className={cn(
-                    "flex items-start gap-3 animate-fade-in-up",
-                    `animation-delay-${(index + 1) * 200}ms`
+                    "flex items-start gap-3 animate-fade-in-up"
                   )}
                   style={{
                     animationDelay: `${(index + 1) * 100}ms`,
