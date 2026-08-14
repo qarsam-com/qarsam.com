@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Button from "@/components/ui/Button";
 import CTAButton from "@/components/ui/CTAButton";
 import { MenuIcon, CloseIcon, QarsamLogo, WhatsAppIcon, ArrowRightIcon } from "@/components/icons";
@@ -10,6 +11,7 @@ import { CTA } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 const Header: React.FC = () => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -38,10 +40,17 @@ const Header: React.FC = () => {
           </Link>
 
           <nav aria-label="Primary navigation" className="hidden items-center gap-8 md:flex lg:gap-10">
-            {primaryNavigation.slice(0, 5).map((item) => (
-              <a key={item.href} href={item.href} className="rounded-lg text-sm font-medium text-navy-700 transition-colors hover:text-electric-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2">
+            {primaryNavigation.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={cn(
+                  "rounded-lg text-sm font-medium transition-colors hover:text-electric-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2",
+                  pathname === item.href ? "text-electric-600" : "text-navy-700"
+                )}
+              >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -73,29 +82,26 @@ const Header: React.FC = () => {
         <nav id="mobile-menu" aria-label="Mobile navigation" className={cn("overflow-hidden transition-all duration-300 ease-in-out md:hidden", isOpen ? "max-h-screen" : "max-h-0")}>
           <div className="space-y-4 border-t border-navy-100 bg-white px-4 py-6">
             {primaryNavigation.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
-                className="block rounded-lg text-base font-medium text-navy-700 transition-colors hover:text-electric-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2"
+                className={cn(
+                  "block rounded-lg text-base font-medium transition-colors hover:text-electric-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2",
+                  pathname === item.href ? "text-electric-600" : "text-navy-700"
+                )}
                 onClick={handleNavClick}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <div className="space-y-3 border-t border-navy-100 pt-4">
               <CTAButton text={CTA.primary} variant="primary" size="md" className="w-full justify-center" icon={<WhatsAppIcon className="h-4 w-4" />} />
-              <Button
-                variant="outline"
-                size="md"
-                onClick={() => {
-                  handleNavClick();
-                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="flex w-full items-center justify-center gap-2"
-              >
-                {CTA.secondary}
-                <ArrowRightIcon className="h-4 w-4" />
-              </Button>
+              <Link href="/contact" onClick={handleNavClick}>
+                <Button variant="outline" size="md" className="flex w-full items-center justify-center gap-2">
+                  {CTA.secondary}
+                  <ArrowRightIcon className="h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </nav>

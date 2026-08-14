@@ -17,18 +17,23 @@ export const siteConfig = {
   footerLinks: {
     company: [
       { label: "About", href: "/about" },
+      { label: "Solutions", href: "/solutions" },
       { label: "Careers", href: "/careers" },
       { label: "Contact", href: "/contact" },
     ],
     services: [
-      { label: "Custom Software", href: "/services/custom-software" },
-      { label: "Web Development", href: "/services/web-development" },
-      { label: "Cloud Infrastructure", href: "/services/cloud-infrastructure" },
+      { label: "Software Development", href: "/services" },
+      { label: "Web Development", href: "/services" },
+      { label: "Cloud Infrastructure", href: "/services" },
+      { label: "Digital Marketing", href: "/services" },
     ],
     resources: [
+      { label: "Portfolio", href: "/portfolio" },
+      { label: "Products", href: "/products" },
       { label: "Blog", href: "/blog" },
-      { label: "Documentation", href: "/documentation" },
+      { label: "FAQ", href: "/faq" },
       { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms & Conditions", href: "/terms" },
     ],
   } satisfies Record<string, LinkItem[]>,
 } as const;
