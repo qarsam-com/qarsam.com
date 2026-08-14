@@ -26,7 +26,7 @@ const CTAButton = React.forwardRef<HTMLButtonElement, CTAButtonProps>(
     ref
   ) => {
     const handleWhatsAppClick = () => {
-      window.open(getWhatsAppInquiryLink(), "_blank");
+      window.open(getWhatsAppInquiryLink(), "_blank", "noopener,noreferrer");
     };
 
     const handleLinkClick = () => {
@@ -36,7 +36,7 @@ const CTAButton = React.forwardRef<HTMLButtonElement, CTAButtonProps>(
           smoothScroll(href.substring(1));
         } else {
           // For external links, open in new tab
-          window.open(href, "_blank");
+          window.open(href, "_blank", "noopener,noreferrer");
         }
       }
     };

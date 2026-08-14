@@ -121,7 +121,7 @@ const Header: React.FC = () => {
           id="mobile-menu"
           className={cn(
             "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
-            isOpen ? "max-h-96" : "max-h-0"
+            isOpen ? "max-h-screen" : "max-h-0"
           )}
         >
           <div className="px-4 py-6 space-y-4 border-t border-navy-100 bg-white/50 backdrop-blur-sm">
