@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { useRouter } from "next/navigation";
 import Button from "./Button";
 import { getWhatsAppInquiryLink } from "@/lib/whatsapp";
 import { smoothScroll } from "@/lib/utils";
@@ -25,6 +28,8 @@ const CTAButton = React.forwardRef<HTMLButtonElement, CTAButtonProps>(
     },
     ref
   ) => {
+    const router = useRouter();
+
     const handleWhatsAppClick = () => {
       window.open(getWhatsAppInquiryLink(), "_blank", "noopener,noreferrer");
     };
@@ -34,9 +39,12 @@ const CTAButton = React.forwardRef<HTMLButtonElement, CTAButtonProps>(
         // For hash links, use smooth scroll
         if (href.startsWith("#")) {
           smoothScroll(href.substring(1));
-        } else {
+        } else if (href.startsWith("http://") || href.startsWith("https://")) {
           // For external links, open in new tab
           window.open(href, "_blank", "noopener,noreferrer");
+        } else {
+          // For internal paths, use Next.js router
+          router.push(href);
         }
       }
     };

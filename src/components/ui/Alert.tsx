@@ -11,7 +11,7 @@ const toneClasses = {
 
 export default function Alert({ className, title, tone = "info", children }: AlertProps) {
   return (
-    <div className={cn("rounded-xl border p-4", toneClasses[tone], className)} role="alert" aria-live="polite">
+    <div className={cn("rounded-xl border p-4", toneClasses[tone], className)} role="alert">
       {title ? <p className="font-semibold">{title}</p> : null}
       {children ? <div className={cn(title && "mt-2", "text-sm")}>{children}</div> : null}
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Select from "@/components/ui/Select";
@@ -31,8 +31,8 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<Partial<Record<keyof ContactFormValues, string>>>({});
   const [submitted, setSubmitted] = useState(false);
 
-  const validate = useMemo(
-    () => (nextValues: ContactFormValues) => {
+  const validate = useCallback(
+    (nextValues: ContactFormValues) => {
       const nextErrors: Partial<Record<keyof ContactFormValues, string>> = {};
 
       if (!nextValues.name.trim()) nextErrors.name = "Please enter your name.";

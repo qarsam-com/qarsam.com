@@ -56,15 +56,12 @@ const Header: React.FC = () => {
 
           <div className="hidden items-center gap-3 md:flex lg:gap-4">
             <CTAButton text={CTA.primary} variant="primary" size="md" icon={<WhatsAppIcon className="h-4 w-4" />} />
-            <Button
-              variant="outline"
-              size="md"
-              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="flex items-center gap-2"
-            >
-              {CTA.secondary}
-              <ArrowRightIcon className="h-4 w-4" />
-            </Button>
+            <Link href="/contact">
+              <Button variant="outline" size="md" className="flex items-center gap-2">
+                {CTA.secondary}
+                <ArrowRightIcon className="h-4 w-4" />
+              </Button>
+            </Link>
           </div>
 
           <button
