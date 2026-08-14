@@ -61,7 +61,7 @@ export default function ContactPage() {
       <CTASection
         title="Prefer a direct conversation first?"
         description="You can also reach us by email or WhatsApp using the details above."
-        primaryHref="mailto:info@qarsam.com"
+        primaryHref="mailto:qarsam.com@gmail.com"
         primaryLabel="Email Qarsam"
       />
     </>

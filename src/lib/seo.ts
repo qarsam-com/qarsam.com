@@ -53,7 +53,7 @@ export function generateOrganizationSchema() {
     contact: {
       "@type": "ContactPoint",
       contactType: "Customer Service",
-      email: "info@qarsam.com",
+      email: "qarsam.com@gmail.com",
     },
   };
 }

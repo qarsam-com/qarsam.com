@@ -10,9 +10,9 @@ export const BRAND = {
   description:
     "We build modern digital solutions that help businesses grow.",
   website: "https://qarsam.com",
-  email: "info@qarsam.com",
-  phone: "+923001234567", // To be updated
-  whatsapp: "+923001234567", // To be updated
+  email: "qarsam.com@gmail.com",
+  phone: "+923396520107",
+  whatsapp: "+923396520107",
 };
 
 // Navigation items

@@ -7,8 +7,8 @@ export const siteConfig = {
     "We build modern digital solutions that help businesses grow. Custom software, web development, WordPress, e-commerce, hosting & cloud infrastructure.",
   url: "https://qarsam.com",
   locale: "en_US",
-  email: "info@qarsam.com",
-  phone: "+923001234567",
+  email: "qarsam.com@gmail.com",
+  phone: "+923396520107",
   social: {
     linkedin: "#",
     x: "#",
