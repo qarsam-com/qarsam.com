@@ -69,10 +69,10 @@ export function generateLocalBusinessSchema() {
     image: "https://qarsam.com/logo.svg",
     description: "Software Development & Digital Solutions",
     url: "https://qarsam.com",
-    telephone: "+92-300-0000000", // To be updated
+    telephone: "+923396520107",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "", // To be updated
+      streetAddress: "Pakistan",
       addressLocality: "Pakistan",
       postalCode: "",
       addressCountry: "PK",
