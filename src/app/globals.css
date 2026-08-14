@@ -82,6 +82,62 @@ a:hover {
   outline-offset: 2px;
 }
 
+/* Animation Delays for Staggered Effects */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+/* Animation delay utilities */
+.animation-delay-100ms {
+  animation-delay: 100ms;
+}
+
+.animation-delay-200ms {
+  animation-delay: 200ms;
+}
+
+.animation-delay-300ms {
+  animation-delay: 300ms;
+}
+
+.animation-delay-400ms {
+  animation-delay: 400ms;
+}
+
+.animation-delay-500ms {
+  animation-delay: 500ms;
+}
+
+.animation-delay-600ms {
+  animation-delay: 600ms;
+}
+
 @media (min-width: 768px) {
   h1 {
     font-size: 3.75rem;
