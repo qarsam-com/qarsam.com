@@ -121,40 +121,6 @@ export const EmailIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 );
 
 /**
- * Qarsam Logo (SVG)
- */
-export const QarsamLogo: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg
-    viewBox="0 0 120 40"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
-    {/* Logo mark - stylized Q */}
-    <circle cx="12" cy="20" r="10" fill="currentColor" />
-    <path
-      d="M18 28C20 24 22 22 24 22"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-    />
-
-    {/* Qarsam Text */}
-    <text
-      x="32"
-      y="25"
-      fontSize="18"
-      fontWeight="700"
-      fontFamily="Poppins, sans-serif"
-      fill="currentColor"
-      letterSpacing="-0.5"
-    >
-      Qarsam
-    </text>
-  </svg>
-);
-
-/**
  * Layers Icon — used for platforms / enterprise software
  */
 export const LayersIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
@@ -427,5 +393,4 @@ export default {
   CheckIcon,
   WhatsAppIcon,
   EmailIcon,
-  QarsamLogo,
 };

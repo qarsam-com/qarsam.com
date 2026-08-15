@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Button from "@/components/ui/Button";
 import CTAButton from "@/components/ui/CTAButton";
-import { MenuIcon, CloseIcon, QarsamLogo, WhatsAppIcon, ArrowRightIcon } from "@/components/icons";
+import { MenuIcon, CloseIcon, WhatsAppIcon, ArrowRightIcon } from "@/components/icons";
 import { primaryNavigation } from "@/constants/navigation";
 import { CTA } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -71,7 +72,7 @@ const Header: React.FC = () => {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-4 md:h-20">
           <Link href="/" className="shrink-0 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2" aria-label="Qarsam home">
-            <QarsamLogo className="h-8 w-auto text-navy-900 md:h-10" />
+            <Image src="/logo-transparent.png" alt="Qarsam" width={995} height={637} priority className="h-9 w-auto md:h-11" />
           </Link>
 
           <nav aria-label="Primary navigation" className="hidden items-center gap-5 whitespace-nowrap lg:flex xl:gap-7">

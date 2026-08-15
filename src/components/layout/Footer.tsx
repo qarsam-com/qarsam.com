@@ -1,8 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { footerNavigation } from "@/constants/navigation";
 import { siteConfig } from "@/config/site";
 import Container from "@/components/ui/Container";
-import { QarsamLogo } from "@/components/icons";
 
 const sections = [
   { title: "Company", links: siteConfig.footerLinks.company },
@@ -20,7 +20,13 @@ export default function Footer() {
         </h2>
         <div className="grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,2fr)]">
           <div className="space-y-4">
-            <QarsamLogo className="h-8 w-auto text-white" />
+            <Image
+              src="/logo-transparent.png"
+              alt="Qarsam"
+              width={995}
+              height={637}
+              className="h-9 w-auto brightness-0 invert"
+            />
             <p className="max-w-md text-sm leading-6 text-navy-300">{siteConfig.description}</p>
             <a href={`mailto:${siteConfig.email}`} className="inline-flex rounded-sm text-sm text-electric-300 hover:text-electric-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900">
               {siteConfig.email}
