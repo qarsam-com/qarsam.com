@@ -4,6 +4,7 @@ import { SectionHeading, SectionSubheading } from "@/components/ui/SectionHeadin
 import type { FeatureItem } from "@/lib/content";
 
 interface FeatureGridProps {
+  id?: string;
   eyebrow?: string;
   title: string;
   description?: string;
@@ -13,6 +14,7 @@ interface FeatureGridProps {
 }
 
 export default function FeatureGrid({
+  id,
   eyebrow,
   title,
   description,
@@ -21,7 +23,7 @@ export default function FeatureGrid({
   muted = false,
 }: FeatureGridProps) {
   return (
-    <section className={muted ? "bg-navy-50 py-16 sm:py-20" : "py-16 sm:py-20"}>
+    <section id={id} className={muted ? "scroll-mt-20 bg-navy-50 py-16 sm:py-20" : "scroll-mt-20 py-16 sm:py-20"}>
       <Container>
         <div className="max-w-3xl space-y-4">
           {eyebrow ? <p className="text-sm font-semibold uppercase tracking-[0.16em] text-electric-600">{eyebrow}</p> : null}

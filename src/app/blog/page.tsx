@@ -58,7 +58,7 @@ export default function BlogPage() {
       <CTASection
         title="Looking for insights tailored to your project?"
         description="We can discuss your goals directly and recommend an approach specific to your context."
-        primaryHref="/contact"
+        primaryHref="/#contact"
         primaryLabel="Talk to Qarsam"
       />
     </>

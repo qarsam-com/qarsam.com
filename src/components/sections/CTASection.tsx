@@ -4,6 +4,7 @@ import Container from "@/components/ui/Container";
 import { SectionHeading, SectionSubheading } from "@/components/ui/SectionHeading";
 
 interface CTASectionProps {
+  id?: string;
   title: string;
   description: string;
   primaryHref?: string;
@@ -13,15 +14,16 @@ interface CTASectionProps {
 }
 
 export default function CTASection({
+  id,
   title,
   description,
-  primaryHref = "/contact",
+  primaryHref = "/#contact",
   primaryLabel = "Start a conversation",
   secondaryHref,
   secondaryLabel,
 }: CTASectionProps) {
   return (
-    <section className="py-16 sm:py-20">
+    <section id={id} className="scroll-mt-20 py-16 sm:py-20">
       <Container>
         <div className="rounded-3xl bg-navy-900 px-6 py-12 text-white sm:px-10 lg:px-12">
           <div className="max-w-3xl space-y-4">

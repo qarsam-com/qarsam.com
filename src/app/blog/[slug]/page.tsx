@@ -85,7 +85,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <CTASection
         title="Need help applying these ideas to your business?"
         description="We can help translate strategy into a practical product, website, or infrastructure plan."
-        primaryHref="/contact"
+        primaryHref="/#contact"
         primaryLabel="Discuss your project"
         secondaryHref="/blog"
         secondaryLabel="Back to blog"

@@ -1,22 +1,30 @@
 import type { Metadata } from "next";
-import CTASection from "@/components/sections/CTASection";
+import ConsultationSection from "@/components/sections/ConsultationSection";
 import FeatureGrid from "@/components/sections/FeatureGrid";
 import HeroSection from "@/components/sections/Hero";
 import StatsBand from "@/components/sections/StatsBand";
+import TechnologyExpertise from "@/components/sections/TechnologyExpertise";
 import TimelineSection from "@/components/sections/TimelineSection";
+import WhyChooseSection from "@/components/sections/WhyChooseSection";
+import Accordion from "@/components/ui/Accordion";
 import Container from "@/components/ui/Container";
 import { SectionHeading, SectionSubheading } from "@/components/ui/SectionHeading";
 import {
   buildMetadata,
+  businessChallenges,
   companyStats,
+  coreSolutions,
   deliveryProcess,
+  faqItems,
   serviceCatalog,
-  solutionIndustries,
+  technologyGroups,
+  whyChooseUs,
 } from "@/lib/content";
 
 export const metadata: Metadata = buildMetadata({
   title: "Home",
-  description: "Qarsam delivers modern software, web, commerce, hosting, cloud, and digital growth solutions for ambitious businesses.",
+  description:
+    "Qarsam is a Software Engineering, IT Consulting, and Digital Transformation partner helping organizations modernize operations, automate workflows, and build scalable digital solutions.",
   path: "/",
 });
 
@@ -26,53 +34,70 @@ export default function Home() {
       <HeroSection />
       <StatsBand items={companyStats} />
       <FeatureGrid
-        eyebrow="Services"
-        title="End-to-end digital delivery"
-        description="From planning and software engineering to web presence, commerce, and infrastructure, Qarsam supports the capabilities businesses need to move forward."
-        items={serviceCatalog.slice(0, 6)}
-      />
-      <FeatureGrid
-        eyebrow="Solutions"
-        title="Support shaped around your business context"
-        description="We adapt delivery to your market, team structure, and operating requirements rather than forcing a one-size-fits-all process."
-        items={solutionIndustries}
+        id="challenges"
+        eyebrow="Business Challenges"
+        title="Does this sound like your organization?"
+        description="Many organizations lose time and momentum to the same operational challenges. Recognizing them is the first step toward a more efficient way of working."
+        items={businessChallenges}
         muted
       />
+      <FeatureGrid
+        id="solutions"
+        eyebrow="Our Solutions"
+        title="We turn business challenges into efficient digital solutions."
+        description="Rather than leading with technology, we start with the outcome you need and recommend the solution that gets you there."
+        items={coreSolutions}
+      />
+      <FeatureGrid
+        id="services"
+        eyebrow="Our Services"
+        title="End-to-end technology services for modern organizations."
+        description="From engineering to infrastructure to intelligent automation, our services are organized around the business capabilities you need most."
+        items={serviceCatalog}
+        columns="2"
+        muted
+      />
+      <WhyChooseSection
+        id="why-choose"
+        eyebrow="Why Choose Qarsam"
+        title="A technology partner, not just a software vendor."
+        description="We bring a business-first consulting approach that distinguishes us from conventional software development companies."
+        items={whyChooseUs}
+      />
       <TimelineSection
-        title="A straightforward way of working"
-        description="We aim to keep delivery transparent, organized, and aligned with the outcomes you care about most."
+        id="process"
+        title="Our Process"
+        description="Every engagement follows a transparent, structured methodology from first consultation to long-term support."
         items={deliveryProcess}
       />
-      <section className="bg-navy-50 py-16 sm:py-20">
-        <Container>
+      <TechnologyExpertise
+        id="technologies"
+        title="Technology Expertise"
+        description="We work across modern, proven technologies chosen to fit your business needs rather than trends."
+        groups={technologyGroups}
+      />
+      <section id="faq" className="scroll-mt-20 py-16 sm:py-20">
+        <Container maxWidth="xl">
           <div className="max-w-3xl space-y-4">
-            <SectionHeading>Built for long-term usefulness, not just launch day.</SectionHeading>
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-electric-600">FAQ</p>
+            <SectionHeading>Frequently asked questions</SectionHeading>
             <SectionSubheading>
-              Qarsam combines product thinking, engineering, and operational awareness so websites and software continue to support your team after initial delivery.
+              Answers to common questions about our services, process, technologies, and how to get started.
             </SectionSubheading>
           </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {[
-              ["Clear communication", "Regular visibility into priorities, risks, milestones, and trade-offs throughout the work."],
-              ["Maintainable foundations", "Architecture, content structure, and deployment decisions that remain practical to evolve over time."],
-              ["Flexible engagement", "Suitable for new initiatives, improvement work, or ongoing support once a product is live."],
-            ].map(([title, description]) => (
-              <div key={title} className="rounded-2xl bg-white p-6 shadow-sm">
-                <h2 className="text-xl font-semibold text-navy-900">{title}</h2>
-                <p className="mt-3 leading-7 text-navy-600">{description}</p>
-              </div>
-            ))}
+          <div className="mt-10">
+            <Accordion
+              items={faqItems.map((item) => ({
+                id: item.id,
+                title: item.title,
+                content: <p className="leading-7">{item.content}</p>,
+              }))}
+              defaultOpen={faqItems[0]?.id}
+            />
           </div>
         </Container>
       </section>
-      <CTASection
-        title="Ready to explore your next digital initiative?"
-        description="We can help you scope the work, identify the right delivery path, and move toward launch with confidence."
-        primaryHref="/contact"
-        primaryLabel="Start your project"
-        secondaryHref="/services"
-        secondaryLabel="View services"
-      />
+      <ConsultationSection />
     </>
   );
 }

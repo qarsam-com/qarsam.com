@@ -9,13 +9,6 @@ export type Stat = {
   detail?: string;
 };
 
-export type PageIntro = {
-  eyebrow: string;
-  title: string;
-  description: string;
-  supportingText?: string;
-};
-
 export type FeatureItem = {
   title: string;
   description: string;
@@ -25,16 +18,6 @@ export type FeatureItem = {
 export type TimelineItem = {
   title: string;
   description: string;
-};
-
-export type CaseStudy = {
-  slug: string;
-  title: string;
-  summary: string;
-  industry: string;
-  services: string[];
-  outcome: string;
-  highlights: string[];
 };
 
 export type BlogPost = {
@@ -53,190 +36,178 @@ export type BlogPost = {
   }>;
 };
 
-export type JobOpening = {
-  id: string;
-  title: string;
-  type: string;
-  location: string;
-  summary: string;
-  responsibilities: string[];
-};
-
 export const companyStats: Stat[] = [
-  { value: "10+", label: "Years building digital products", detail: "Practical delivery experience across product, marketing, and operations." },
-  { value: "Cross-functional", label: "Delivery model", detail: "Engineering, design, content, and infrastructure aligned around measurable outcomes." },
-  { value: "Flexible", label: "Engagement options", detail: "Project-based delivery, ongoing retainers, or embedded team support." },
+  { value: "10+", label: "Years of delivery experience", detail: "Practical experience helping organizations modernize operations and technology." },
+  { value: "Business-first", label: "Consulting approach", detail: "Every engagement starts with understanding your workflows, not selling technology." },
+  { value: "End-to-end", label: "Delivery model", detail: "Strategy, engineering, infrastructure, and long-term support in one partnership." },
 ];
 
-export const aboutIntro: PageIntro = {
-  eyebrow: "About Qarsam",
-  title: "A practical technology partner for ambitious teams.",
-  description:
-    "Qarsam helps businesses launch, improve, and scale digital products with a balanced approach to engineering quality, usability, and commercial impact.",
-  supportingText:
-    "We focus on clear communication, steady execution, and solutions that remain maintainable after launch.",
-};
-
-export const aboutValues: FeatureItem[] = [
+export const businessChallenges: FeatureItem[] = [
   {
-    title: "Outcome-focused delivery",
-    description: "We start with business goals and user needs so product decisions stay grounded in measurable outcomes.",
+    title: "Manual & paper-based operations",
+    description: "Teams still rely on paperwork and manual handoffs that slow decisions and introduce errors.",
   },
   {
-    title: "Sustainable engineering",
-    description: "We prioritize maintainable architecture, documentation, and handoff readiness instead of short-term fixes.",
+    title: "Repetitive business processes",
+    description: "Valuable staff time is spent on repetitive tasks that could be automated or streamlined.",
   },
   {
-    title: "Transparent collaboration",
-    description: "Clients get visibility into priorities, trade-offs, timelines, and progress throughout the engagement.",
+    title: "Legacy software & disconnected systems",
+    description: "Outdated applications and disconnected tools make it hard to get a unified view of the business.",
   },
   {
-    title: "Continuous improvement",
-    description: "We review performance after launch and iterate on product, content, and infrastructure based on evidence.",
+    title: "Spreadsheet dependency",
+    description: "Critical operations run on spreadsheets that are difficult to scale, audit, or share safely.",
+  },
+  {
+    title: "Slow approval workflows",
+    description: "Approvals and case handling move slowly across departments, delaying outcomes for customers and staff.",
+  },
+  {
+    title: "Limited reporting & visibility",
+    description: "Leadership lacks timely, reliable data to monitor performance and make confident decisions.",
   },
 ];
 
-export const teamHighlights: FeatureItem[] = [
+export const coreSolutions: FeatureItem[] = [
   {
-    title: "Product-minded engineers",
-    description: "Teams that translate requirements into scalable software, integrations, and operational workflows.",
+    title: "Digital Transformation",
+    description: "Modernize operations end-to-end with a clear roadmap tied to measurable business outcomes.",
   },
   {
-    title: "Web and commerce specialists",
-    description: "Experts in content-led websites, storefronts, and conversion-oriented user journeys.",
+    title: "Business Process Automation",
+    description: "Replace manual, repetitive work with automated workflows that save time and reduce errors.",
   },
   {
-    title: "Infrastructure and growth support",
-    description: "Hosting, deployment, cloud, analytics, and digital marketing support designed to complement product delivery.",
+    title: "Enterprise Software",
+    description: "Purpose-built platforms that support how your organization actually operates and grows.",
+  },
+  {
+    title: "Workflow & Case Management",
+    description: "Digital forms, approvals, and case tracking that speed up decisions across departments.",
+  },
+  {
+    title: "Cloud Solutions",
+    description: "Secure, scalable infrastructure that supports growth without unnecessary operational overhead.",
+  },
+  {
+    title: "System Integration",
+    description: "Connect disconnected tools into a unified digital ecosystem for better collaboration.",
+  },
+  {
+    title: "AI-Enabled Business Solutions",
+    description: "Practical AI and automation that reduce workload and improve responsiveness.",
+  },
+  {
+    title: "IT Modernization",
+    description: "Upgrade legacy systems and infrastructure without disrupting day-to-day operations.",
   },
 ];
 
 export const serviceCatalog: FeatureItem[] = [
   {
-    title: "Software Development",
-    description: "Custom software for internal operations, client platforms, SaaS products, and business automation.",
-    bullets: ["Discovery and architecture", "API and backend development", "Integrations and workflows"],
+    title: "Software Engineering & Custom Applications",
+    description: "Custom software, enterprise platforms, and integrations built around your business logic.",
+    bullets: ["Custom & enterprise software development", "Web & mobile application development", "API development & system integration"],
   },
   {
-    title: "Web Development",
-    description: "Modern, responsive websites with strong performance, accessibility, and content flexibility.",
-    bullets: ["Marketing sites", "Corporate websites", "Performance optimization"],
+    title: "IT Consulting & Digital Transformation",
+    description: "Strategic guidance that connects technology decisions to business objectives.",
+    bullets: ["IT consultation & technology advisory", "Business process analysis", "Solution architecture & IT infrastructure planning"],
   },
   {
-    title: "WordPress Solutions",
-    description: "Custom WordPress implementations for editorial teams that need ease of publishing and dependable maintenance.",
-    bullets: ["Theme customization", "Plugin integration", "Managed support"],
+    title: "Business Process Automation",
+    description: "Digitize workflows, approvals, and reporting to remove manual bottlenecks.",
+    bullets: ["Workflow design & automation", "Digital forms & document management", "Business dashboards & analytics"],
   },
   {
-    title: "E-Commerce",
-    description: "Commerce experiences that connect product merchandising, checkout flows, and operational processes.",
-    bullets: ["Storefront UX", "Catalog management", "Payments and fulfillment"],
+    title: "Cloud & Infrastructure",
+    description: "Reliable, secure infrastructure that scales with your organization.",
+    bullets: ["Cloud migration & infrastructure design", "Server administration & deployment", "Backup & disaster recovery planning"],
   },
   {
-    title: "Hosting & Managed Support",
-    description: "Reliable environments, routine maintenance, monitoring, and operational support for business continuity.",
-    bullets: ["Managed hosting", "Backups and monitoring", "Maintenance plans"],
+    title: "WordPress Development & Management",
+    description: "Custom WordPress builds, stores, and ongoing management for content-driven teams.",
+    bullets: ["Custom themes & plugin development", "WooCommerce development", "Performance & security hardening"],
   },
   {
-    title: "Cloud Infrastructure",
-    description: "Cloud setups that support secure deployments, scaling, and operational resilience.",
-    bullets: ["Cloud planning", "Deployment automation", "Environment hardening"],
+    title: "AI & Intelligent Automation",
+    description: "Practical AI integration that automates decisions and improves customer experience.",
+    bullets: ["AI integration for business applications", "Intelligent chatbots & virtual assistants", "AI workflow automation"],
   },
   {
-    title: "Digital Marketing",
-    description: "Strategy and execution support for attracting relevant traffic and improving lead quality.",
-    bullets: ["Landing page strategy", "Search visibility", "Analytics and reporting"],
+    title: "Managed IT & Cybersecurity",
+    description: "Ongoing protection, monitoring, and support that keeps systems reliable.",
+    bullets: ["Security audits & website security", "Performance monitoring", "Managed IT services & technical support"],
+  },
+  {
+    title: "Digital Experience & E-Commerce",
+    description: "Corporate websites and online stores designed to convert and perform.",
+    bullets: ["Corporate website development", "E-commerce & WooCommerce stores", "Website optimization & SEO"],
+  },
+];
+
+export const whyChooseUs: FeatureItem[] = [
+  {
+    title: "Business-first consulting approach",
+    description: "We understand your operations before recommending any technology.",
+  },
+  {
+    title: "Technology-independent recommendations",
+    description: "We recommend the right tools for your goals, not the tools we prefer to sell.",
+  },
+  {
+    title: "Experienced engineering team",
+    description: "A team that has delivered software, infrastructure, and automation across diverse industries.",
+  },
+  {
+    title: "Secure & scalable solutions",
+    description: "Every solution is designed to remain reliable and secure as your organization grows.",
+  },
+  {
+    title: "Modern development practices",
+    description: "Clean architecture, maintainable code, and current engineering standards throughout delivery.",
+  },
+  {
+    title: "Long-term technical partnership",
+    description: "We stay involved after launch to support, optimize, and evolve your solutions.",
   },
 ];
 
 export const deliveryProcess: TimelineItem[] = [
-  { title: "Discover", description: "Clarify goals, user needs, constraints, and success criteria before building." },
-  { title: "Plan", description: "Define solution scope, technical approach, milestones, and delivery priorities." },
-  { title: "Build", description: "Implement in increments with regular reviews, quality checks, and stakeholder feedback." },
-  { title: "Launch & Improve", description: "Support rollout, track results, and iterate based on usage and business feedback." },
+  { title: "Consultation", description: "We start by listening — understanding your organization, goals, and challenges." },
+  { title: "Business Analysis", description: "We evaluate current workflows and identify where technology can create the most value." },
+  { title: "Solution Strategy", description: "We recommend the most effective technology approach based on your business needs." },
+  { title: "Design & Development", description: "We design, build, and implement secure, scalable solutions aligned with your goals." },
+  { title: "Testing & Deployment", description: "We validate quality, performance, and security before a confident rollout." },
+  { title: "Support & Continuous Improvement", description: "We provide ongoing support, monitoring, and optimization as your business grows." },
 ];
 
-export const solutionIndustries: FeatureItem[] = [
-  {
-    title: "FinTech",
-    description: "Operational dashboards, onboarding flows, reporting tools, and secure transaction-related interfaces.",
-    bullets: ["Workflow automation", "Customer portals", "Data visibility"],
-  },
-  {
-    title: "E-Commerce",
-    description: "Commerce systems that connect storefront experience with merchandising, marketing, and fulfillment.",
-    bullets: ["Storefront improvements", "Order operations", "Conversion optimization"],
-  },
-  {
-    title: "Healthcare",
-    description: "Information platforms and internal tools that emphasize usability, clarity, and dependable access.",
-    bullets: ["Appointment flows", "Content publishing", "Operational coordination"],
-  },
-  {
-    title: "SaaS",
-    description: "Product marketing sites, application experiences, admin tooling, and customer lifecycle support.",
-    bullets: ["Product UX", "User onboarding", "Internal admin systems"],
-  },
+export type TechnologyGroup = {
+  title: string;
+  items: string[];
+};
+
+export const technologyGroups: TechnologyGroup[] = [
+  { title: "Frontend & Web", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
+  { title: "Backend & APIs", items: ["Node.js", "PHP", "REST & GraphQL APIs", "Microservices"] },
+  { title: "CMS & Commerce", items: ["WordPress", "WooCommerce", "Headless CMS"] },
+  { title: "Cloud & DevOps", items: ["AWS", "Linux Servers", "Docker", "CI/CD Pipelines"] },
+  { title: "Data & Databases", items: ["MySQL", "PostgreSQL", "MongoDB"] },
+  { title: "AI & Automation", items: ["AI Integrations", "Chatbots", "Workflow Automation", "Prompt Engineering"] },
 ];
 
-export const caseStudies: CaseStudy[] = [
-  {
-    slug: "commerce-operations-platform",
-    title: "Commerce operations platform",
-    summary: "A unified platform concept for managing catalog updates, order workflows, and reporting across multiple channels.",
-    industry: "E-Commerce",
-    services: ["Software Development", "Web Development", "Cloud Infrastructure"],
-    outcome: "Improved visibility across storefront and operations with a streamlined internal workflow.",
-    highlights: ["Centralized order monitoring", "Faster catalog publishing", "Operational reporting foundations"],
-  },
-  {
-    slug: "fintech-client-portal",
-    title: "FinTech client portal",
-    summary: "A secure portal concept for onboarding, document exchange, and status visibility for financial service clients.",
-    industry: "FinTech",
-    services: ["Software Development", "UX Planning", "Managed Support"],
-    outcome: "Clearer client communication and reduced manual status updates for the operations team.",
-    highlights: ["Guided onboarding", "Self-service status tracking", "Role-based views"],
-  },
-  {
-    slug: "content-led-brand-refresh",
-    title: "Content-led brand refresh",
-    summary: "A modern website framework for a growing company that needed clearer positioning, stronger SEO foundations, and faster publishing.",
-    industry: "SaaS",
-    services: ["Web Development", "WordPress Solutions", "Digital Marketing"],
-    outcome: "Better content organization and a more scalable publishing workflow for ongoing campaigns.",
-    highlights: ["Reusable page templates", "Improved performance baseline", "Editorial flexibility"],
-  },
-];
-
-export const productsCatalog: FeatureItem[] = [
-  {
-    title: "Operations dashboards",
-    description: "Internal reporting and visibility tools that help teams track performance, tasks, and exceptions in one place.",
-  },
-  {
-    title: "Website starter systems",
-    description: "Reusable website foundations with performance, accessibility, and content structure already considered.",
-  },
-  {
-    title: "Commerce enablement tools",
-    description: "Utilities and workflows that support product publishing, order coordination, and post-purchase communication.",
-  },
-];
-
-export const productApproach: FeatureItem[] = [
-  {
-    title: "Built for real workflows",
-    description: "We shape products around actual team processes rather than generic feature lists.",
-  },
-  {
-    title: "Designed for extension",
-    description: "Foundations are structured to accommodate future integrations, content needs, and business changes.",
-  },
-  {
-    title: "Supported after launch",
-    description: "We can continue with iteration, maintenance, and roadmap support as products evolve.",
-  },
+export const industriesServed: string[] = [
+  "Government & Public Sector",
+  "Small & Medium Businesses",
+  "Large Enterprises",
+  "Educational Institutions",
+  "Healthcare",
+  "Logistics & Transportation",
+  "Manufacturing",
+  "Financial Services",
+  "Retail & Commerce",
+  "Professional Services",
 ];
 
 export const blogPosts: BlogPost[] = [
@@ -343,60 +314,6 @@ export const blogPosts: BlogPost[] = [
   },
 ];
 
-export const openings: JobOpening[] = [
-  {
-    id: "frontend-engineer",
-    title: "Frontend Engineer",
-    type: "Full-time",
-    location: "Remote / Hybrid",
-    summary: "Help design and build modern web experiences with strong attention to usability, performance, and maintainability.",
-    responsibilities: [
-      "Build responsive interfaces using modern frontend frameworks.",
-      "Collaborate with design and backend stakeholders to shape implementation details.",
-      "Contribute to component quality, accessibility, and performance improvements.",
-    ],
-  },
-  {
-    id: "wordpress-specialist",
-    title: "WordPress Specialist",
-    type: "Contract",
-    location: "Remote",
-    summary: "Support content-rich websites with custom themes, integrations, and managed improvements.",
-    responsibilities: [
-      "Implement custom WordPress features and reusable content structures.",
-      "Maintain site health, updates, and plugin compatibility.",
-      "Coordinate publishing requirements with marketing or editorial teams.",
-    ],
-  },
-  {
-    id: "project-coordinator",
-    title: "Project Coordinator",
-    type: "Full-time",
-    location: "Remote / On-site",
-    summary: "Keep delivery organized through clear communication, planning support, and stakeholder coordination.",
-    responsibilities: [
-      "Track milestones, action items, and delivery risks across active projects.",
-      "Support client communication and meeting follow-up.",
-      "Help improve internal processes and documentation quality.",
-    ],
-  },
-];
-
-export const cultureHighlights: FeatureItem[] = [
-  {
-    title: "Collaborative delivery",
-    description: "We value thoughtful communication, constructive feedback, and shared ownership of outcomes.",
-  },
-  {
-    title: "Room to grow",
-    description: "Team members are encouraged to strengthen technical depth, communication, and product thinking.",
-  },
-  {
-    title: "Meaningful work",
-    description: "Projects span real business problems where clarity, reliability, and user experience matter.",
-  },
-];
-
 export const faqItems = [
   {
     id: "faq-services",
@@ -423,7 +340,19 @@ export const faqItems = [
       "We break work into milestones, communicate trade-offs early, and review progress regularly so decisions can be made with good visibility into timing and priorities.",
   },
   {
+    id: "faq-technologies",
+    title: "Do you recommend specific technologies?",
+    content:
+      "We recommend technology based on your business requirements rather than a fixed stack. Our team works across modern software, cloud, WordPress, and automation platforms to fit each engagement.",
+  },
+  {
     id: "faq-pricing",
+    title: "How does pricing and consultation work?",
+    content:
+      "Every engagement starts with a free consultation to understand your goals. From there we provide a scope-based proposal so pricing stays transparent and tied to the value delivered.",
+  },
+  {
+    id: "faq-teamwork",
     title: "Can you work with an existing internal team?",
     content:
       "Yes. We can collaborate with in-house teams by contributing implementation capacity, specialized expertise, or structured delivery support where it is most useful.",
@@ -480,20 +409,26 @@ export const termsSections: Array<{ title: string; body: string[] }> = [
 
 export const contactDetails = [
   {
+    title: "Phone",
+    value: BRAND.phone,
+    href: `tel:${BRAND.phone.replace(/\s/g, "")}`,
+    description: "Call us directly to discuss your business challenges.",
+  },
+  {
+    title: "WhatsApp",
+    value: BRAND.whatsapp,
+    href: `https://wa.me/${BRAND.whatsapp.replace(/\D/g, "")}`,
+    description: "Start a quick conversation about scope, timelines, or support.",
+  },
+  {
     title: "Email",
     value: BRAND.email,
     href: `mailto:${BRAND.email}`,
     description: "For project inquiries, partnerships, and general questions.",
   },
   {
-    title: "Phone / WhatsApp",
-    value: BRAND.phone,
-    href: `https://wa.me/${BRAND.whatsapp.replace(/\D/g, "")}`,
-    description: "For direct conversations about timelines, scope, or support.",
-  },
-  {
-    title: "Working approach",
-    value: "Remote-first collaboration",
+    title: "Office",
+    value: "Remote-first, serving clients globally",
     href: undefined,
     description: "Available for remote delivery, hybrid coordination, and scheduled workshops.",
   },

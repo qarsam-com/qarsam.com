@@ -6,23 +6,24 @@
 // Brand information
 export const BRAND = {
   name: "Qarsam",
-  tagline: "Software Development & Digital Solutions",
+  tagline: "Software Engineering, IT Consulting & Digital Transformation",
   description:
-    "We build modern digital solutions that help businesses grow.",
+    "We help organizations modernize operations, automate workflows, and build scalable digital solutions.",
   website: "https://qarsam.com",
   email: "qarsam.com@gmail.com",
   phone: "+923396520107",
   whatsapp: "+923396520107",
 };
 
-// Navigation items
+// Navigation items (anchors on the single-page landing site)
 export const NAV_ITEMS = [
-  { label: "Services", href: "#services" },
   { label: "Solutions", href: "#solutions" },
-  { label: "Technologies", href: "#technologies" },
-  { label: "Why Choose Us", href: "#why-choose" },
+  { label: "Services", href: "#services" },
+  { label: "Why Qarsam", href: "#why-choose" },
   { label: "Process", href: "#process" },
+  { label: "Technologies", href: "#technologies" },
   { label: "FAQ", href: "#faq" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "#contact" },
 ];
 

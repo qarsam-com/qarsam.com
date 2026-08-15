@@ -12,8 +12,10 @@ import { cn } from "@/lib/utils";
 
 const Header: React.FC = () => {
   const pathname = usePathname();
+  const isHome = pathname === "/";
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -21,6 +23,34 @@ const Header: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isHome) return;
+
+    const sectionIds = primaryNavigation
+      .filter((item) => item.href.startsWith("#"))
+      .map((item) => item.href.slice(1));
+
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((element): element is HTMLElement => Boolean(element));
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [isHome]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -31,6 +61,9 @@ const Header: React.FC = () => {
 
   const handleNavClick = () => setIsOpen(false);
 
+  const resolveHref = (href: string) => (href.startsWith("#") && !isHome ? `/${href}` : href);
+  const isActive = (href: string) => (href.startsWith("#") ? isHome && activeSection === href.slice(1) : pathname === href);
+
   return (
     <header className={cn("sticky top-0 z-50 transition-all duration-300", isScrolled ? "border-b border-navy-100 bg-white/95 shadow-md backdrop-blur-sm" : "bg-white/90 backdrop-blur-sm") }>
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -39,15 +72,16 @@ const Header: React.FC = () => {
             <QarsamLogo className="h-8 w-auto text-navy-900 md:h-10" />
           </Link>
 
-          <nav aria-label="Primary navigation" className="hidden items-center gap-8 md:flex lg:gap-10">
+          <nav aria-label="Primary navigation" className="hidden items-center gap-6 md:flex lg:gap-8">
             {primaryNavigation.map((item) => (
               <Link
                 key={item.href}
-                href={item.href}
+                href={resolveHref(item.href)}
                 className={cn(
                   "rounded-lg text-sm font-medium transition-colors hover:text-electric-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2",
-                  pathname === item.href ? "text-electric-600" : "text-navy-700"
+                  isActive(item.href) ? "text-electric-600" : "text-navy-700"
                 )}
+                aria-current={isActive(item.href) ? "page" : undefined}
               >
                 {item.label}
               </Link>
@@ -56,7 +90,7 @@ const Header: React.FC = () => {
 
           <div className="hidden items-center gap-3 md:flex lg:gap-4">
             <CTAButton text={CTA.primary} variant="primary" size="md" icon={<WhatsAppIcon className="h-4 w-4" />} />
-            <Link href="/contact">
+            <Link href={resolveHref("#contact")}>
               <Button variant="outline" size="md" className="flex items-center gap-2">
                 {CTA.secondary}
                 <ArrowRightIcon className="h-4 w-4" />
@@ -81,11 +115,12 @@ const Header: React.FC = () => {
             {primaryNavigation.map((item) => (
               <Link
                 key={item.href}
-                href={item.href}
+                href={resolveHref(item.href)}
                 className={cn(
                   "block rounded-lg text-base font-medium transition-colors hover:text-electric-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2",
-                  pathname === item.href ? "text-electric-600" : "text-navy-700"
+                  isActive(item.href) ? "text-electric-600" : "text-navy-700"
                 )}
+                aria-current={isActive(item.href) ? "page" : undefined}
                 onClick={handleNavClick}
               >
                 {item.label}
@@ -93,7 +128,7 @@ const Header: React.FC = () => {
             ))}
             <div className="space-y-3 border-t border-navy-100 pt-4">
               <CTAButton text={CTA.primary} variant="primary" size="md" className="w-full justify-center" icon={<WhatsAppIcon className="h-4 w-4" />} />
-              <Link href="/contact" onClick={handleNavClick}>
+              <Link href={resolveHref("#contact")} onClick={handleNavClick}>
                 <Button variant="outline" size="md" className="flex w-full items-center justify-center gap-2">
                   {CTA.secondary}
                   <ArrowRightIcon className="h-4 w-4" />

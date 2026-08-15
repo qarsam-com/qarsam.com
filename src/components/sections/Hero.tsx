@@ -20,9 +20,9 @@ import { BRAND, CTA } from "@/lib/constants";
 const HeroSection: React.FC = () => {
   // Trust indicators to build credibility
   const trustIndicators = [
-    { text: "10+ Years Experience", icon: true },
-    { text: "500+ Projects Delivered", icon: true },
-    { text: "24/7 Support", icon: true },
+    { text: "Business-first consulting", icon: true },
+    { text: "Secure & scalable delivery", icon: true },
+    { text: "Long-term technical partnership", icon: true },
   ];
 
   return (
@@ -60,7 +60,7 @@ const HeroSection: React.FC = () => {
             {/* Badge */}
             <div className="inline-block">
               <Badge variant="accent" size="md">
-                🚀 Modern Software Solutions
+                Business Technology Partner
               </Badge>
             </div>
 
@@ -72,8 +72,8 @@ const HeroSection: React.FC = () => {
                 "tracking-tight"
               )}
             >
-              Build Your Digital Future{" "}
-              <span className="text-electric-600">Today</span>
+              Modernize your business with{" "}
+              <span className="text-electric-600">intelligent technology</span>
             </h1>
 
             {/* Subheading */}
@@ -83,9 +83,9 @@ const HeroSection: React.FC = () => {
                 "max-w-xl"
               )}
             >
-              {BRAND.description} We deliver premium software development,
-              web solutions, and cloud infrastructure tailored to your business
-              needs.
+              {BRAND.description} We partner with organizations to understand
+              their business challenges and deliver secure, scalable digital
+              solutions that create measurable value.
             </p>
 
             {/* CTA Buttons */}
@@ -247,9 +247,9 @@ const HeroSection: React.FC = () => {
                 } as React.CSSProperties}
               >
                 <div className="text-sm font-semibold text-navy-900">
-                  500+
+                  10+
                 </div>
-                <div className="text-xs text-navy-600">Projects Completed</div>
+                <div className="text-xs text-navy-600">Years of Delivery</div>
               </div>
 
               <div
@@ -263,15 +263,15 @@ const HeroSection: React.FC = () => {
                 } as React.CSSProperties}
               >
                 <div className="text-sm font-semibold text-navy-900">
-                  98%
+                  End-to-End
                 </div>
-                <div className="text-xs text-navy-600">Client Satisfaction</div>
+                <div className="text-xs text-navy-600">Business Support</div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom section: Featured services snapshot */}
+        {/* Bottom section: Featured solution categories */}
         <div
           className={cn(
             "mt-20 pt-12 border-t border-navy-200",
@@ -282,14 +282,14 @@ const HeroSection: React.FC = () => {
           } as React.CSSProperties}
         >
           <p className="text-sm font-semibold text-navy-600 uppercase tracking-wide mb-6">
-            Our Services
+            How We Help
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              "Software Development",
-              "Web Development",
-              "Cloud Solutions",
-              "Digital Marketing",
+              "Digital Transformation",
+              "Business Automation",
+              "Enterprise Software",
+              "Cloud & IT Modernization",
             ].map((service, index) => (
               <div
                 key={index}

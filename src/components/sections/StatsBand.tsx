@@ -2,12 +2,13 @@ import Container from "@/components/ui/Container";
 import type { Stat } from "@/lib/content";
 
 interface StatsBandProps {
+  id?: string;
   items: Stat[];
 }
 
-export default function StatsBand({ items }: StatsBandProps) {
+export default function StatsBand({ id, items }: StatsBandProps) {
   return (
-    <section className="border-y border-navy-100 bg-white py-10">
+    <section id={id} className="scroll-mt-20 border-y border-navy-100 bg-white py-10">
       <Container>
         <div className="grid gap-6 md:grid-cols-3">
           {items.map((item) => (
