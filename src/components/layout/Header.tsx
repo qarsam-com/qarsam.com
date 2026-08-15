@@ -39,11 +39,13 @@ const Header: React.FC = () => {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
+        const intersecting = entries.filter((entry) => entry.isIntersecting);
+        if (intersecting.length === 0) return;
+
+        const closest = intersecting.reduce((best, entry) =>
+          Math.abs(entry.boundingClientRect.top) < Math.abs(best.boundingClientRect.top) ? entry : best
+        );
+        setActiveSection(closest.target.id);
       },
       { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
     );
