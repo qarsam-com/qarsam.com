@@ -105,6 +105,52 @@ p, li, a, input, textarea, select, button {
 .animation-delay-400ms { animation-delay: 400ms; }
 .animation-delay-500ms { animation-delay: 500ms; }
 .animation-delay-600ms { animation-delay: 600ms; }
+.animation-delay-700ms { animation-delay: 700ms; }
+.animation-delay-800ms { animation-delay: 800ms; }
+
+/* Gradient text used for emphasis words in headings */
+.text-gradient-brand {
+  background-image: linear-gradient(100deg, #0284c7 0%, #0ea5e9 45%, #22c55e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Soft radial glow used behind hero art / feature icons */
+.bg-glow-electric {
+  background: radial-gradient(closest-side, rgba(14, 165, 233, 0.35), transparent 80%);
+}
+
+/* Reveal-on-scroll primitive: JS toggles data-revealed */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-float-slow,
+  .animate-float-slower,
+  .animate-spin-slow,
+  .animate-pulse-soft {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
 
 @media (min-width: 768px) {
   h1 { font-size: 3.75rem; }

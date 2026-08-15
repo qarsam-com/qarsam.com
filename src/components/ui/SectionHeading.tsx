@@ -1,6 +1,32 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
+interface EyebrowProps extends React.HTMLAttributes<HTMLParagraphElement> {
+  children: React.ReactNode;
+}
+
+/**
+ * Small uppercase pill label used above section headings for consistent
+ * section identity across the landing page.
+ */
+export const Eyebrow = React.forwardRef<HTMLParagraphElement, EyebrowProps>(
+  ({ className, children, ...props }, ref) => (
+    <p
+      ref={ref}
+      className={cn(
+        "inline-flex items-center gap-2 rounded-full border border-electric-100 bg-electric-50 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-electric-700",
+        className
+      )}
+      {...props}
+    >
+      <span className="h-1.5 w-1.5 rounded-full bg-electric-500" aria-hidden="true" />
+      {children}
+    </p>
+  )
+);
+
+Eyebrow.displayName = "Eyebrow";
+
 interface SectionHeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   children: React.ReactNode;
   level?: "h1" | "h2" | "h3";

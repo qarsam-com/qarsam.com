@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { BRAND, SERVICE_OPTIONS } from "@/lib/constants";
 import type { BreadcrumbItem } from "@/types/components";
+import type { IconName } from "@/components/icons";
 
 export type Stat = {
   label: string;
@@ -13,11 +14,13 @@ export type FeatureItem = {
   title: string;
   description: string;
   bullets?: string[];
+  icon?: IconName;
 };
 
 export type TimelineItem = {
   title: string;
   description: string;
+  icon?: IconName;
 };
 
 export type BlogPost = {
@@ -46,26 +49,32 @@ export const businessChallenges: FeatureItem[] = [
   {
     title: "Manual & paper-based operations",
     description: "Teams still rely on paperwork and manual handoffs that slow decisions and introduce errors.",
+    icon: "layers",
   },
   {
     title: "Repetitive business processes",
     description: "Valuable staff time is spent on repetitive tasks that could be automated or streamlined.",
+    icon: "refresh",
   },
   {
     title: "Legacy software & disconnected systems",
     description: "Outdated applications and disconnected tools make it hard to get a unified view of the business.",
+    icon: "puzzle",
   },
   {
     title: "Spreadsheet dependency",
     description: "Critical operations run on spreadsheets that are difficult to scale, audit, or share safely.",
+    icon: "database",
   },
   {
     title: "Slow approval workflows",
     description: "Approvals and case handling move slowly across departments, delaying outcomes for customers and staff.",
+    icon: "clock",
   },
   {
     title: "Limited reporting & visibility",
     description: "Leadership lacks timely, reliable data to monitor performance and make confident decisions.",
+    icon: "chart",
   },
 ];
 
@@ -73,34 +82,42 @@ export const coreSolutions: FeatureItem[] = [
   {
     title: "Digital Transformation",
     description: "Modernize operations end-to-end with a clear roadmap tied to measurable business outcomes.",
+    icon: "rocket",
   },
   {
     title: "Business Process Automation",
     description: "Replace manual, repetitive work with automated workflows that save time and reduce errors.",
+    icon: "workflow",
   },
   {
     title: "Enterprise Software",
     description: "Purpose-built platforms that support how your organization actually operates and grows.",
+    icon: "layers",
   },
   {
     title: "Workflow & Case Management",
     description: "Digital forms, approvals, and case tracking that speed up decisions across departments.",
+    icon: "target",
   },
   {
     title: "Cloud Solutions",
     description: "Secure, scalable infrastructure that supports growth without unnecessary operational overhead.",
+    icon: "cloud",
   },
   {
     title: "System Integration",
     description: "Connect disconnected tools into a unified digital ecosystem for better collaboration.",
+    icon: "puzzle",
   },
   {
     title: "AI-Enabled Business Solutions",
     description: "Practical AI and automation that reduce workload and improve responsiveness.",
+    icon: "cpu",
   },
   {
     title: "IT Modernization",
     description: "Upgrade legacy systems and infrastructure without disrupting day-to-day operations.",
+    icon: "server",
   },
 ];
 
@@ -109,41 +126,49 @@ export const serviceCatalog: FeatureItem[] = [
     title: "Software Engineering & Custom Applications",
     description: "Custom software, enterprise platforms, and integrations built around your business logic.",
     bullets: ["Custom & enterprise software development", "Web & mobile application development", "API development & system integration"],
+    icon: "code",
   },
   {
     title: "IT Consulting & Digital Transformation",
     description: "Strategic guidance that connects technology decisions to business objectives.",
     bullets: ["IT consultation & technology advisory", "Business process analysis", "Solution architecture & IT infrastructure planning"],
+    icon: "target",
   },
   {
     title: "Business Process Automation",
     description: "Digitize workflows, approvals, and reporting to remove manual bottlenecks.",
     bullets: ["Workflow design & automation", "Digital forms & document management", "Business dashboards & analytics"],
+    icon: "workflow",
   },
   {
     title: "Cloud & Infrastructure",
     description: "Reliable, secure infrastructure that scales with your organization.",
     bullets: ["Cloud migration & infrastructure design", "Server administration & deployment", "Backup & disaster recovery planning"],
+    icon: "cloud",
   },
   {
     title: "WordPress Development & Management",
     description: "Custom WordPress builds, stores, and ongoing management for content-driven teams.",
     bullets: ["Custom themes & plugin development", "WooCommerce development", "Performance & security hardening"],
+    icon: "globe",
   },
   {
     title: "AI & Intelligent Automation",
     description: "Practical AI integration that automates decisions and improves customer experience.",
     bullets: ["AI integration for business applications", "Intelligent chatbots & virtual assistants", "AI workflow automation"],
+    icon: "cpu",
   },
   {
     title: "Managed IT & Cybersecurity",
     description: "Ongoing protection, monitoring, and support that keeps systems reliable.",
     bullets: ["Security audits & website security", "Performance monitoring", "Managed IT services & technical support"],
+    icon: "shield",
   },
   {
     title: "Digital Experience & E-Commerce",
     description: "Corporate websites and online stores designed to convert and perform.",
     bullets: ["Corporate website development", "E-commerce & WooCommerce stores", "Website optimization & SEO"],
+    icon: "search",
   },
 ];
 
@@ -151,50 +176,57 @@ export const whyChooseUs: FeatureItem[] = [
   {
     title: "Business-first consulting approach",
     description: "We understand your operations before recommending any technology.",
+    icon: "target",
   },
   {
     title: "Technology-independent recommendations",
     description: "We recommend the right tools for your goals, not the tools we prefer to sell.",
+    icon: "sparkles",
   },
   {
     title: "Experienced engineering team",
     description: "A team that has delivered software, infrastructure, and automation across diverse industries.",
+    icon: "users",
   },
   {
     title: "Secure & scalable solutions",
     description: "Every solution is designed to remain reliable and secure as your organization grows.",
+    icon: "shield",
   },
   {
     title: "Modern development practices",
     description: "Clean architecture, maintainable code, and current engineering standards throughout delivery.",
+    icon: "code",
   },
   {
     title: "Long-term technical partnership",
     description: "We stay involved after launch to support, optimize, and evolve your solutions.",
+    icon: "handshake",
   },
 ];
 
 export const deliveryProcess: TimelineItem[] = [
-  { title: "Consultation", description: "We start by listening — understanding your organization, goals, and challenges." },
-  { title: "Business Analysis", description: "We evaluate current workflows and identify where technology can create the most value." },
-  { title: "Solution Strategy", description: "We recommend the most effective technology approach based on your business needs." },
-  { title: "Design & Development", description: "We design, build, and implement secure, scalable solutions aligned with your goals." },
-  { title: "Testing & Deployment", description: "We validate quality, performance, and security before a confident rollout." },
-  { title: "Support & Continuous Improvement", description: "We provide ongoing support, monitoring, and optimization as your business grows." },
+  { title: "Consultation", description: "We start by listening — understanding your organization, goals, and challenges.", icon: "handshake" },
+  { title: "Business Analysis", description: "We evaluate current workflows and identify where technology can create the most value.", icon: "search" },
+  { title: "Solution Strategy", description: "We recommend the most effective technology approach based on your business needs.", icon: "target" },
+  { title: "Design & Development", description: "We design, build, and implement secure, scalable solutions aligned with your goals.", icon: "code" },
+  { title: "Testing & Deployment", description: "We validate quality, performance, and security before a confident rollout.", icon: "shield" },
+  { title: "Support & Continuous Improvement", description: "We provide ongoing support, monitoring, and optimization as your business grows.", icon: "refresh" },
 ];
 
 export type TechnologyGroup = {
   title: string;
   items: string[];
+  icon?: IconName;
 };
 
 export const technologyGroups: TechnologyGroup[] = [
-  { title: "Frontend & Web", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-  { title: "Backend & APIs", items: ["Node.js", "PHP", "REST & GraphQL APIs", "Microservices"] },
-  { title: "CMS & Commerce", items: ["WordPress", "WooCommerce", "Headless CMS"] },
-  { title: "Cloud & DevOps", items: ["AWS", "Linux Servers", "Docker", "CI/CD Pipelines"] },
-  { title: "Data & Databases", items: ["MySQL", "PostgreSQL", "MongoDB"] },
-  { title: "AI & Automation", items: ["AI Integrations", "Chatbots", "Workflow Automation", "Prompt Engineering"] },
+  { title: "Frontend & Web", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"], icon: "code" },
+  { title: "Backend & APIs", items: ["Node.js", "PHP", "REST & GraphQL APIs", "Microservices"], icon: "server" },
+  { title: "CMS & Commerce", items: ["WordPress", "WooCommerce", "Headless CMS"], icon: "globe" },
+  { title: "Cloud & DevOps", items: ["AWS", "Linux Servers", "Docker", "CI/CD Pipelines"], icon: "cloud" },
+  { title: "Data & Databases", items: ["MySQL", "PostgreSQL", "MongoDB"], icon: "database" },
+  { title: "AI & Automation", items: ["AI Integrations", "Chatbots", "Workflow Automation", "Prompt Engineering"], icon: "cpu" },
 ];
 
 export const industriesServed: string[] = [
@@ -407,30 +439,34 @@ export const termsSections: Array<{ title: string; body: string[] }> = [
   },
 ];
 
-export const contactDetails = [
+export const contactDetails: Array<{ title: string; value: string; href?: string; description: string; icon: IconName }> = [
   {
     title: "Phone",
     value: BRAND.phone,
     href: `tel:${BRAND.phone.replace(/\s/g, "")}`,
     description: "Call us directly to discuss your business challenges.",
+    icon: "phone",
   },
   {
     title: "WhatsApp",
     value: BRAND.whatsapp,
     href: `https://wa.me/${BRAND.whatsapp.replace(/\D/g, "")}`,
     description: "Start a quick conversation about scope, timelines, or support.",
+    icon: "whatsapp",
   },
   {
     title: "Email",
     value: BRAND.email,
     href: `mailto:${BRAND.email}`,
     description: "For project inquiries, partnerships, and general questions.",
+    icon: "email",
   },
   {
     title: "Office",
     value: "Remote-first, serving clients globally",
     href: undefined,
     description: "Available for remote delivery, hybrid coordination, and scheduled workshops.",
+    icon: "mapPin",
   },
 ];
 

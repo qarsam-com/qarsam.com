@@ -8,7 +8,8 @@ import TimelineSection from "@/components/sections/TimelineSection";
 import WhyChooseSection from "@/components/sections/WhyChooseSection";
 import Accordion from "@/components/ui/Accordion";
 import Container from "@/components/ui/Container";
-import { SectionHeading, SectionSubheading } from "@/components/ui/SectionHeading";
+import Reveal from "@/components/ui/Reveal";
+import { Eyebrow, SectionHeading, SectionSubheading } from "@/components/ui/SectionHeading";
 import {
   buildMetadata,
   businessChallenges,
@@ -66,35 +67,44 @@ export default function Home() {
       />
       <TimelineSection
         id="process"
-        title="Our Process"
+        eyebrow="Our Process"
+        title="A transparent, structured methodology."
         description="Every engagement follows a transparent, structured methodology from first consultation to long-term support."
         items={deliveryProcess}
       />
       <TechnologyExpertise
         id="technologies"
-        title="Technology Expertise"
+        eyebrow="Technology Expertise"
+        title="Proven technology, chosen for your business."
         description="We work across modern, proven technologies chosen to fit your business needs rather than trends."
         groups={technologyGroups}
       />
-      <section id="faq" className="scroll-mt-20 py-16 sm:py-20">
-        <Container maxWidth="xl">
-          <div className="max-w-3xl space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-electric-600">FAQ</p>
+      <section id="faq" className="scroll-mt-20 py-14 sm:py-20">
+        <Container>
+          <Reveal className="max-w-3xl space-y-4">
+            <Eyebrow>FAQ</Eyebrow>
             <SectionHeading>Frequently asked questions</SectionHeading>
             <SectionSubheading>
               Answers to common questions about our services, process, technologies, and how to get started.
             </SectionSubheading>
-          </div>
-          <div className="mt-10">
+          </Reveal>
+          <Reveal delay={100} className="mt-12 grid gap-6 lg:grid-cols-2 lg:items-start lg:gap-x-8">
             <Accordion
-              items={faqItems.map((item) => ({
+              items={faqItems.slice(0, Math.ceil(faqItems.length / 2)).map((item) => ({
                 id: item.id,
                 title: item.title,
                 content: <p className="leading-7">{item.content}</p>,
               }))}
               defaultOpen={faqItems[0]?.id}
             />
-          </div>
+            <Accordion
+              items={faqItems.slice(Math.ceil(faqItems.length / 2)).map((item) => ({
+                id: item.id,
+                title: item.title,
+                content: <p className="leading-7">{item.content}</p>,
+              }))}
+            />
+          </Reveal>
         </Container>
       </section>
       <ConsultationSection />

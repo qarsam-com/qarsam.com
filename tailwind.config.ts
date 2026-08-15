@@ -59,6 +59,11 @@ const config: Config = {
         "fade-in": "fadeIn 0.3s ease-out",
         "fade-in-up": "fadeInUp 0.5s ease-out",
         "slide-in-right": "slideInRight 0.5s ease-out",
+        "float-slow": "float 8s ease-in-out infinite",
+        "float-slower": "float 12s ease-in-out infinite",
+        "spin-slow": "spin 18s linear infinite",
+        "pulse-soft": "pulseSoft 3s ease-in-out infinite",
+        "shimmer": "shimmer 2.5s linear infinite",
       },
       keyframes: {
         fadeIn: {
@@ -73,6 +78,18 @@ const config: Config = {
           "0%": { opacity: "0", transform: "translateX(-10px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
+        float: {
+          "0%, 100%": { transform: "translate(0, 0) scale(1)" },
+          "50%": { transform: "translate(0, -18px) scale(1.03)" },
+        },
+        pulseSoft: {
+          "0%, 100%": { opacity: "0.6" },
+          "50%": { opacity: "1" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
       },
       borderRadius: {
         ...defaultTheme.borderRadius,
@@ -84,6 +101,19 @@ const config: Config = {
         sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
         md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
         lg: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)",
+        premium: "0 30px 60px -15px rgba(15, 21, 35, 0.25)",
+        glow: "0 0 0 1px rgba(14, 165, 233, 0.1), 0 20px 40px -12px rgba(14, 165, 233, 0.35)",
+        card: "0 2px 8px -2px rgba(15, 21, 35, 0.08), 0 1px 2px -1px rgba(15, 21, 35, 0.06)",
+      },
+      backgroundImage: {
+        "grid-pattern":
+          "linear-gradient(to right, rgba(15, 21, 35, 0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(15, 21, 35, 0.06) 1px, transparent 1px)",
+        "dot-pattern": "radial-gradient(rgba(15, 21, 35, 0.12) 1px, transparent 1px)",
+        "shimmer-line": "linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent)",
+      },
+      backgroundSize: {
+        grid: "40px 40px",
+        dots: "18px 18px",
       },
     },
   },

@@ -38,14 +38,20 @@ export const Accordion: React.FC<AccordionProps> = ({
   };
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-3">
       {items.map((item) => {
         const isOpen = openItems.has(item.id);
         const panelId = `${item.id}-panel`;
         const buttonId = `${item.id}-trigger`;
 
         return (
-          <div key={item.id} className="overflow-hidden rounded-lg border border-navy-200">
+          <div
+            key={item.id}
+            className={cn(
+              "overflow-hidden rounded-2xl border bg-white shadow-card transition-colors duration-300",
+              isOpen ? "border-electric-200" : "border-navy-100"
+            )}
+          >
             <h3>
               <button
                 id={buttonId}
@@ -54,23 +60,38 @@ export const Accordion: React.FC<AccordionProps> = ({
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 className={cn(
-                  "flex w-full items-center justify-between bg-white px-6 py-4 text-left transition-colors duration-200 hover:bg-navy-50",
+                  "flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors duration-200 hover:bg-navy-50/60",
                   focusRingClassName
                 )}
               >
                 <span className="font-semibold text-navy-900">{item.title}</span>
-                <ChevronDownIcon
-                  className={cn("h-5 w-5 text-navy-600 transition-transform duration-200", isOpen && "rotate-180")}
-                  aria-hidden="true"
-                />
+                <span
+                  className={cn(
+                    "flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300",
+                    isOpen ? "bg-electric-600 text-white" : "bg-navy-50 text-navy-600"
+                  )}
+                >
+                  <ChevronDownIcon
+                    className={cn("h-4 w-4 transition-transform duration-300", isOpen && "rotate-180")}
+                    aria-hidden="true"
+                  />
+                </span>
               </button>
             </h3>
 
-            {isOpen ? (
-              <div id={panelId} role="region" aria-labelledby={buttonId} className="border-t border-navy-200 bg-navy-50 px-6 py-4 text-navy-700">
-                {item.content}
+            <div
+              id={panelId}
+              role="region"
+              aria-labelledby={buttonId}
+              className={cn(
+                "grid transition-all duration-300 ease-in-out",
+                isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+              )}
+            >
+              <div className="overflow-hidden">
+                <div className="border-t border-navy-100 bg-navy-50/60 px-6 py-5 text-navy-700">{item.content}</div>
               </div>
-            ) : null}
+            </div>
           </div>
         );
       })}

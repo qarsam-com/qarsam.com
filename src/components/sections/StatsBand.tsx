@@ -8,14 +8,14 @@ interface StatsBandProps {
 
 export default function StatsBand({ id, items }: StatsBandProps) {
   return (
-    <section id={id} className="scroll-mt-20 border-y border-navy-100 bg-white py-10">
+    <section id={id} className="relative z-20 -mt-16 pb-4 md:-mt-20">
       <Container>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid divide-y divide-navy-800/60 rounded-3xl bg-navy-900 p-2 shadow-premium sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           {items.map((item) => (
-            <div key={item.label} className="rounded-2xl border border-navy-100 bg-navy-50 p-6">
-              <p className="text-3xl font-bold text-navy-900">{item.value}</p>
-              <p className="mt-2 text-base font-medium text-navy-800">{item.label}</p>
-              {item.detail ? <p className="mt-2 text-sm leading-6 text-navy-600">{item.detail}</p> : null}
+            <div key={item.label} className="p-6 sm:p-8">
+              <p className="text-3xl font-bold text-white md:text-4xl">{item.value}</p>
+              <p className="mt-2 text-base font-semibold text-electric-300">{item.label}</p>
+              {item.detail ? <p className="mt-2 text-sm leading-6 text-navy-300">{item.detail}</p> : null}
             </div>
           ))}
         </div>
@@ -23,3 +23,4 @@ export default function StatsBand({ id, items }: StatsBandProps) {
     </section>
   );
 }
+

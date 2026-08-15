@@ -5,267 +5,173 @@ import { cn } from "@/lib/utils";
 import Container from "@/components/ui/Container";
 import CTAButton from "@/components/ui/CTAButton";
 import Button from "@/components/ui/Button";
-import Badge from "@/components/ui/Badge";
-import {
-  WhatsAppIcon,
-  ArrowRightIcon,
-  CheckIcon,
-} from "@/components/icons";
+import IconBadge from "@/components/ui/IconBadge";
+import { WhatsAppIcon, ArrowRightIcon, CheckIcon, SparklesIcon } from "@/components/icons";
 import { BRAND, CTA } from "@/lib/constants";
+import type { IconName } from "@/components/icons";
 
 /**
  * Hero Section Component
  * Premium landing section with headline, CTA buttons, and trust indicators
  */
 const HeroSection: React.FC = () => {
-  // Trust indicators to build credibility
   const trustIndicators = [
-    { text: "Business-first consulting", icon: true },
-    { text: "Secure & scalable delivery", icon: true },
-    { text: "Long-term technical partnership", icon: true },
+    "Business-first consulting",
+    "Secure & scalable delivery",
+    "Long-term technical partnership",
+  ];
+
+  const howWeHelp: Array<{ label: string; icon: IconName }> = [
+    { label: "Digital Transformation", icon: "rocket" },
+    { label: "Business Automation", icon: "workflow" },
+    { label: "Enterprise Software", icon: "layers" },
+    { label: "Cloud & IT Modernization", icon: "cloud" },
   ];
 
   return (
     <section
-      className={cn(
-        "relative min-h-screen pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-40 lg:pb-32",
-        "bg-gradient-to-br from-white via-navy-50 to-electric-50",
-        "overflow-hidden"
-      )}
+      className="relative overflow-hidden bg-white pt-16 pb-20 md:pt-20 md:pb-24 lg:pt-24 lg:pb-28"
       aria-label="Hero section"
     >
-      {/* Decorative gradient blobs */}
+      {/* Layered background: grid pattern + radial fade + gradient blobs */}
       <div
-        className={cn(
-          "absolute -top-40 -right-40 w-80 h-80 rounded-full",
-          "bg-gradient-to-br from-electric-200 to-electric-100",
-          "opacity-40 blur-3xl"
-        )}
+        className="absolute inset-0 bg-grid-pattern bg-grid opacity-60 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black_10%,transparent_75%)]"
         aria-hidden="true"
       />
       <div
-        className={cn(
-          "absolute -bottom-20 -left-40 w-80 h-80 rounded-full",
-          "bg-gradient-to-tr from-navy-200 to-navy-100",
-          "opacity-30 blur-3xl"
-        )}
+        className="absolute -top-32 right-[-10%] h-[28rem] w-[28rem] animate-float-slow rounded-full bg-gradient-to-br from-electric-200 to-electric-100 opacity-50 blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-[-8rem] left-[-10%] h-[24rem] w-[24rem] animate-float-slower rounded-full bg-gradient-to-tr from-success-100 to-electric-50 opacity-40 blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute left-1/4 top-1/3 h-72 w-72 rounded-full bg-gradient-to-br from-navy-100 to-transparent opacity-40 blur-3xl"
         aria-hidden="true"
       />
 
-      {/* Main content */}
       <Container className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-16">
           {/* Left column: Content */}
           <div className="animate-fade-in-up space-y-8">
-            {/* Badge */}
-            <div className="inline-block">
-              <Badge variant="accent" size="md">
-                Business Technology Partner
-              </Badge>
+            <div className="inline-flex items-center gap-2 rounded-full border border-electric-100 bg-electric-50/80 px-4 py-2 text-sm font-semibold text-electric-700 shadow-sm backdrop-blur-sm">
+              <SparklesIcon className="h-4 w-4" aria-hidden="true" />
+              Business Technology Partner
             </div>
 
-            {/* Headline */}
-            <h1
-              className={cn(
-                "text-4xl md:text-5xl lg:text-6xl font-bold",
-                "text-navy-900 leading-tight",
-                "tracking-tight"
-              )}
-            >
+            <h1 className="text-4xl font-bold leading-[1.1] tracking-tight text-navy-900 md:text-5xl lg:text-[3.75rem]">
               Modernize your business with{" "}
-              <span className="text-electric-600">intelligent technology</span>
+              <span className="text-gradient-brand">intelligent technology</span>
             </h1>
 
-            {/* Subheading */}
-            <p
-              className={cn(
-                "text-lg md:text-xl text-navy-600 leading-relaxed",
-                "max-w-xl"
-              )}
-            >
+            <p className="max-w-xl text-lg leading-relaxed text-navy-600 md:text-xl">
               {BRAND.description} We partner with organizations to understand
               their business challenges and deliver secure, scalable digital
               solutions that create measurable value.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <CTAButton
-                text={CTA.primary}
-                variant="primary"
-                size="lg"
-                icon={<WhatsAppIcon className="w-5 h-5" />}
-                className="animate-fade-in-up"
-              />
+            <div className="flex flex-col gap-4 pt-2 sm:flex-row">
+              <CTAButton text={CTA.primary} variant="primary" size="lg" icon={<WhatsAppIcon className="h-5 w-5" />} />
               <Button
                 variant="outline"
                 size="lg"
                 onClick={() => {
-                  const contactSection = document.getElementById("contact");
-                  if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: "smooth" });
-                  }
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="flex items-center justify-center gap-2 hover:bg-navy-50"
+                className="flex items-center justify-center gap-2"
               >
                 {CTA.secondary}
-                <ArrowRightIcon className="w-5 h-5" />
+                <ArrowRightIcon className="h-5 w-5" />
               </Button>
             </div>
 
-            {/* Trust Indicators */}
-            <div
-              className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-navy-200"
-              aria-label="Trust indicators"
-            >
-              {trustIndicators.map((indicator, index) => (
+            <div className="grid grid-cols-1 gap-4 border-t border-navy-100 pt-8 sm:grid-cols-3" aria-label="Trust indicators">
+              {trustIndicators.map((text, index) => (
                 <div
-                  key={index}
-                  className={cn(
-                    "flex items-start gap-3 animate-fade-in-up"
-                  )}
-                  style={{
-                    animationDelay: `${(index + 1) * 100}ms`,
-                  } as React.CSSProperties}
+                  key={text}
+                  className="flex animate-fade-in-up items-start gap-2.5"
+                  style={{ animationDelay: `${(index + 1) * 100}ms` } as React.CSSProperties}
                 >
-                  {indicator.icon && (
-                    <CheckIcon className="w-6 h-6 text-success-600 flex-shrink-0 mt-0.5" />
-                  )}
-                  <span className="text-sm md:text-base font-medium text-navy-700">
-                    {indicator.text}
-                  </span>
+                  <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-success-600" aria-hidden="true" />
+                  <span className="text-sm font-medium leading-snug text-navy-700">{text}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Right column: Visual element */}
-          <div className="relative hidden lg:block">
-            {/* Premium gradient illustration area */}
-            <div
-              className={cn(
-                "relative w-full h-96 rounded-2xl",
-                "bg-gradient-to-br from-electric-400 to-electric-600",
-                "shadow-2xl",
-                "animate-fade-in"
-              )}
-            >
-              {/* Inner content area */}
-              <div
-                className={cn(
-                  "absolute inset-0 rounded-2xl overflow-hidden",
-                  "flex items-center justify-center"
-                )}
-              >
-                {/* SVG Illustration Placeholder - Premium geometric design */}
-                <svg
-                  className="w-full h-full p-8"
-                  viewBox="0 0 400 400"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden="true"
-                >
-                  {/* Background pattern */}
-                  <defs>
-                    <linearGradient
-                      id="grad1"
-                      x1="0%"
-                      y1="0%"
-                      x2="100%"
-                      y2="100%"
-                    >
-                      <stop offset="0%" stopColor="#ffffff" stopOpacity="0.1" />
-                      <stop
-                        offset="100%"
-                        stopColor="#ffffff"
-                        stopOpacity="0.05"
-                      />
-                    </linearGradient>
-                  </defs>
+          {/* Right column: Visual — abstract product / dashboard mockup */}
+          <div className="relative hidden lg:block" aria-hidden="true">
+            <div className="relative mx-auto w-full max-w-md">
+              {/* Ambient glow behind the panel */}
+              <div className="absolute inset-0 -z-10 bg-glow-electric blur-2xl" />
 
-                  {/* Geometric shapes representing tech */}
-                  <circle
-                    cx="200"
-                    cy="100"
-                    r="60"
-                    fill="url(#grad1)"
-                    stroke="#ffffff"
-                    strokeWidth="2"
-                  />
-                  <rect
-                    x="100"
-                    y="200"
-                    width="80"
-                    height="80"
-                    rx="8"
-                    fill="url(#grad1)"
-                    stroke="#ffffff"
-                    strokeWidth="2"
-                  />
-                  <rect
-                    x="220"
-                    y="200"
-                    width="80"
-                    height="80"
-                    rx="8"
-                    fill="url(#grad1)"
-                    stroke="#ffffff"
-                    strokeWidth="2"
-                  />
+              {/* Main glass panel */}
+              <div className="animate-fade-in rounded-3xl border border-white/60 bg-white/70 p-6 shadow-premium backdrop-blur-xl">
+                <div className="flex items-center gap-1.5 border-b border-navy-100 pb-4">
+                  <span className="h-2.5 w-2.5 rounded-full bg-navy-200" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-navy-200" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-electric-400" />
+                  <span className="ml-3 text-xs font-semibold uppercase tracking-widest text-navy-400">
+                    Solution Overview
+                  </span>
+                </div>
 
-                  {/* Connection lines */}
-                  <line
-                    x1="200"
-                    y1="160"
-                    x2="140"
-                    y2="200"
-                    stroke="#ffffff"
-                    strokeWidth="1.5"
-                    opacity="0.5"
-                  />
-                  <line
-                    x1="200"
-                    y1="160"
-                    x2="260"
-                    y2="200"
-                    stroke="#ffffff"
-                    strokeWidth="1.5"
-                    opacity="0.5"
-                  />
-                </svg>
+                <div className="mt-6 space-y-4">
+                  <div className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-card">
+                    <IconBadge icon="code" tone="electric" size="md" />
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-navy-900">Custom Platform Build</p>
+                      <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-navy-100">
+                        <div className="h-full w-4/5 rounded-full bg-gradient-to-r from-electric-500 to-electric-600" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-card">
+                    <IconBadge icon="cpu" tone="navy" size="md" />
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-navy-900">Workflow Automation</p>
+                      <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-navy-100">
+                        <div className="h-full w-3/5 rounded-full bg-gradient-to-r from-navy-700 to-navy-900" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-card">
+                    <IconBadge icon="cloud" tone="success" size="md" />
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-navy-900">Cloud Infrastructure</p>
+                      <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-navy-100">
+                        <div className="h-full w-11/12 rounded-full bg-gradient-to-r from-success-500 to-success-600" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              {/* Floating cards for depth */}
+              {/* Floating stat cards for depth */}
               <div
-                className={cn(
-                  "absolute -bottom-4 -left-4 w-32 h-24 rounded-lg",
-                  "bg-white shadow-lg p-4 backdrop-blur-sm",
-                  "animate-fade-in-up"
-                )}
-                style={{
-                  animationDelay: "200ms",
-                } as React.CSSProperties}
+                className="absolute -bottom-6 -left-8 w-36 animate-fade-in-up rounded-2xl border border-navy-100 bg-white p-4 shadow-premium"
+                style={{ animationDelay: "300ms" } as React.CSSProperties}
               >
-                <div className="text-sm font-semibold text-navy-900">
-                  10+
-                </div>
-                <div className="text-xs text-navy-600">Years of Delivery</div>
+                <p className="text-2xl font-bold text-navy-900">10+</p>
+                <p className="text-xs font-medium text-navy-500">Years of Delivery</p>
               </div>
 
               <div
-                className={cn(
-                  "absolute -top-4 -right-4 w-32 h-24 rounded-lg",
-                  "bg-white shadow-lg p-4 backdrop-blur-sm",
-                  "animate-fade-in-up"
-                )}
-                style={{
-                  animationDelay: "400ms",
-                } as React.CSSProperties}
+                className="absolute -top-8 -right-6 w-40 animate-fade-in-up rounded-2xl border border-navy-100 bg-white p-4 shadow-premium"
+                style={{ animationDelay: "450ms" } as React.CSSProperties}
               >
-                <div className="text-sm font-semibold text-navy-900">
-                  End-to-End
+                <div className="flex items-center gap-2">
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-success-100 text-success-700">
+                    <CheckIcon className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-navy-900">End-to-End</p>
+                    <p className="text-xs text-navy-500">Business Support</p>
+                  </div>
                 </div>
-                <div className="text-xs text-navy-600">Business Support</div>
               </div>
             </div>
           </div>
@@ -273,35 +179,26 @@ const HeroSection: React.FC = () => {
 
         {/* Bottom section: Featured solution categories */}
         <div
-          className={cn(
-            "mt-20 pt-12 border-t border-navy-200",
-            "animate-fade-in-up"
-          )}
-          style={{
-            animationDelay: "600ms",
-          } as React.CSSProperties}
+          className="mt-20 animate-fade-in-up border-t border-navy-100 pt-10"
+          style={{ animationDelay: "500ms" } as React.CSSProperties}
         >
-          <p className="text-sm font-semibold text-navy-600 uppercase tracking-wide mb-6">
-            How We Help
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              "Digital Transformation",
-              "Business Automation",
-              "Enterprise Software",
-              "Cloud & IT Modernization",
-            ].map((service, index) => (
+          <p className="mb-6 text-sm font-semibold uppercase tracking-[0.16em] text-navy-500">How We Help</p>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            {howWeHelp.map(({ label, icon }) => (
               <div
-                key={index}
+                key={label}
                 className={cn(
-                  "px-4 py-3 rounded-lg",
-                  "bg-white/50 border border-navy-100",
-                  "text-sm font-medium text-navy-700",
-                  "hover:bg-electric-50 hover:border-electric-200",
-                  "transition-all duration-300"
+                  "group flex items-center gap-3 rounded-xl border border-navy-100 bg-white/60 px-4 py-3.5 backdrop-blur-sm",
+                  "transition-all duration-300 hover:-translate-y-0.5 hover:border-electric-200 hover:bg-white hover:shadow-card"
                 )}
               >
-                {service}
+                <IconBadge
+                  icon={icon}
+                  tone="electric"
+                  size="sm"
+                  className="opacity-90 transition-transform duration-300 group-hover:scale-110"
+                />
+                <span className="text-sm font-medium text-navy-700">{label}</span>
               </div>
             ))}
           </div>
