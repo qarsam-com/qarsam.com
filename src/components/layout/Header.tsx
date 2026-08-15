@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Button from "@/components/ui/Button";
+import Container from "@/components/ui/Container";
 import CTAButton from "@/components/ui/CTAButton";
 import { MenuIcon, CloseIcon, QarsamLogo, WhatsAppIcon, ArrowRightIcon } from "@/components/icons";
 import { primaryNavigation } from "@/constants/navigation";
@@ -33,7 +34,7 @@ const Header: React.FC = () => {
 
   return (
     <header className={cn("sticky top-0 z-50 transition-all duration-300", isScrolled ? "border-b border-navy-100 bg-white/95 shadow-md backdrop-blur-sm" : "bg-white/90 backdrop-blur-sm") }>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <Container>
         <div className="flex h-16 items-center justify-between md:h-20">
           <Link href="/" className="rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2" aria-label="Qarsam home">
             <QarsamLogo className="h-8 w-auto text-navy-900 md:h-10" />
@@ -102,7 +103,7 @@ const Header: React.FC = () => {
             </div>
           </div>
         </nav>
-      </div>
+      </Container>
     </header>
   );
 };

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
+import Alert from "@/components/ui/Alert";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
 import Select from "@/components/ui/Select";
@@ -120,16 +121,9 @@ export default function ContactForm() {
   return (
     <form className="space-y-5" onSubmit={handleSubmit} noValidate>
       {submitStatus && (
-        <div
-          className={`rounded-lg p-4 text-sm ${
-            submitStatus.type === "success"
-              ? "bg-green-50 text-green-800"
-              : "bg-red-50 text-red-800"
-          }`}
-          role="alert"
-        >
+        <Alert tone={submitStatus.type === "success" ? "success" : "error"}>
           {submitStatus.message}
-        </div>
+        </Alert>
       )}
 
       <div className="grid gap-5 sm:grid-cols-2">

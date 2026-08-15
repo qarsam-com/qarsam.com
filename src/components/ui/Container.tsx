@@ -3,11 +3,11 @@ import { cn } from "@/lib/utils";
 
 interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
-  maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl" | "6xl" | "full";
+  maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl" | "6xl" | "7xl" | "full";
 }
 
 const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
-  ({ className, children, maxWidth = "6xl", ...props }, ref) => {
+  ({ className, children, maxWidth = "7xl", ...props }, ref) => {
     const maxWidths = {
       sm: "max-w-sm",
       md: "max-w-md",
@@ -15,6 +15,7 @@ const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
       xl: "max-w-xl",
       "2xl": "max-w-2xl",
       "6xl": "max-w-6xl",
+      "7xl": "max-w-7xl",
       full: "max-w-full",
     };
 

@@ -22,15 +22,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      "font-medium rounded-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed";
+      "font-medium rounded-lg transition-all duration-200 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100";
 
     const variants = {
       primary:
-        "bg-electric-600 text-white hover:bg-electric-700",
+        "bg-electric-600 text-white shadow-sm hover:bg-electric-700 hover:shadow-md",
       secondary:
-        "bg-navy-900 text-white hover:bg-navy-800",
+        "bg-navy-900 text-white shadow-sm hover:bg-navy-800 hover:shadow-md",
       outline:
-        "border-2 border-navy-300 text-navy-900 hover:bg-navy-50",
+        "border-2 border-navy-200 bg-white text-navy-900 hover:border-navy-300 hover:bg-navy-50",
       ghost: "text-navy-900 hover:bg-navy-50",
       link: "text-electric-600 underline-offset-4 hover:underline",
     };
