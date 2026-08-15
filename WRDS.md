@@ -1,532 +1,817 @@
-# Website Requirements & Design Specification (WRDS)
+**Website Requirements & Design Specification (WRDS)**
 
-## Qarsam.com
+**Qarsam Corporate Website**
 
-### Version 1.0
+**Version 2.0**
 
-### Date: August 2026
+**Single-Page Corporate Landing Website**
 
-# Document Control
+**1. Introduction**
 
-| Item          | Details                                            |
-|---------------|----------------------------------------------------|
-| Project       | Qarsam Official Website                            |
-| Website       | qarsam.com                                         |
-| Version       | 1.0                                                |
-| Document Type | Website Requirements & Design Specification (WRDS) |
-| Status        | Approved for Development                           |
-| Technology    | Next.js + TypeScript + Tailwind CSS                |
-| Development   | AI Assisted (Claude & Codex)                       |
+**1.1 Purpose**
 
-# 1. Introduction
+This Website Requirements & Design Specification (WRDS) defines the business objectives, functional requirements, design principles, content structure, technical standards, and implementation guidelines for the Qarsam corporate website.
 
-## 1.1 Purpose
+The document serves as the single source of truth for the website's design and development. It provides clear guidance to ensure that every design decision, user interface component, and content section aligns with Qarsam's business vision, brand identity, and long-term digital strategy.
 
-This document defines the functional, technical, UI/UX, branding, and content requirements for the official website of **Qarsam**.
+The website will be developed as a modern, responsive, high-performance corporate landing website using Next.js and related technologies, emphasizing professionalism, usability, accessibility, search engine optimization, and lead generation.
 
-The objective is to build a modern, minimalistic, responsive, and high-converting company website that establishes Qarsam as a professional technology company offering software development, web development, cloud infrastructure, networking, hosting, and digital solutions.
+**1.2 Website Vision**
 
-The website will primarily serve as a **lead generation platform**, encouraging potential clients to initiate contact through WhatsApp or the contact form.
+Qarsam is positioned as a Software Engineering, IT Consulting, and Digital Transformation company that helps organizations modernize their operations through technology.
 
-## 1.2 Objectives
+The website should communicate confidence, technical expertise, and business value rather than simply showcasing software development capabilities. Every section should clearly explain how Qarsam helps organizations solve business problems, automate workflows, improve operational efficiency, and adopt modern digital solutions.
 
-The website shall:
+Instead of focusing primarily on technologies, the website should focus on business outcomes, allowing visitors to quickly understand the value Qarsam delivers and encouraging them to initiate a consultation.
 
--   Build trust within seconds.
--   Clearly communicate services.
--   Generate qualified leads.
--   Present Qarsam as a technology company rather than merely a web design agency.
--   Perform exceptionally well on mobile devices.
--   Load quickly.
--   Be SEO friendly.
--   Be easy to expand in future.
+**1.3 Objectives**
 
-## 1.3 Target Audience
+The primary objectives of the website are to:
 
-### Primary
+-   Establish Qarsam as a trusted Software Engineering and IT Consulting company.
+-   Clearly communicate the company's services and technology capabilities.
+-   Present business-focused digital solutions rather than technology-centric offerings.
+-   Generate qualified business inquiries through an integrated consultation and contact section.
+-   Build credibility through a modern, premium, and professional online presence.
+-   Deliver an intuitive user experience across desktop, tablet, and mobile devices.
+-   Maintain excellent performance, accessibility, security, and search engine visibility.
 
--   Small Businesses
--   Startups
--   SMEs
--   Retail Businesses
--   Educational Institutions
+**1.4 Scope**
 
-### Secondary
+The scope of Version 2.0 includes the complete redesign and implementation of the Qarsam corporate website as a **single-page landing website** with dedicated utility pages only where legally or operationally required.
 
--   Healthcare Organizations
--   Logistics Companies
--   Manufacturing Companies
--   Aviation Industry
--   Government & Semi-Government Organizations (where permissible)
--   NGOs
+The landing page will contain all primary business information through structured sections connected by a sticky navigation menu.
 
-### Geographic Focus
+Separate pages will be limited to:
 
-Phase 1
+-   Blog
+-   Privacy Policy
+-   Terms & Conditions
+-   Custom 404 Error Page
 
--   Pakistan
+No additional marketing or informational pages will be developed in this version unless future business requirements justify their inclusion.
 
-Future
+**2. Business Overview**
 
--   GCC
--   Middle East
--   International
+**2.1 Company Overview**
 
-# 2. Brand Identity
+Qarsam is a technology consulting and software engineering company dedicated to helping organizations transform manual, disconnected, and inefficient business processes into secure, scalable, and intelligent digital solutions.
 
-## Brand Name
+The company specializes in understanding business workflows before recommending technology, ensuring that every solution addresses operational challenges and delivers measurable value.
 
-**Qarsam**
+Rather than offering generic software development services, Qarsam partners with clients to analyze existing processes, identify opportunities for improvement, and design practical technology solutions that simplify operations, increase productivity, and support long-term growth.
 
-## Brand Position
+**2.2 Core Service Areas**
 
->   Software Development & Digital Solutions
+Qarsam delivers end-to-end technology solutions that help businesses modernize operations, automate workflows, strengthen their digital presence, and accelerate growth. Our services are organized into the following core business areas:
 
-## Brand Personality
+**Software Engineering & Custom Application Development**
 
-The website should communicate:
+-   Custom Software Development
+-   Enterprise Software Solutions
+-   Web Application Development
+-   Mobile Application Development
+-   API Development & System Integration
+-   Database Design & Development
+-   Legacy System Modernization
 
--   Professional
--   Modern
--   Trustworthy
--   Reliable
--   Technical
--   Minimal
--   Premium
--   Fast
--   Transparent
+**IT Consulting, Strategy & Digital Transformation**
 
-## Brand Promise
+-   IT Consultation
+-   Digital Transformation Strategy
+-   Technology Advisory
+-   Business Process Analysis
+-   Solution Architecture
+-   IT Infrastructure Planning
+-   Technology Assessment & Modernization
 
->   We build modern digital solutions that help businesses grow.
+**Business Process Automation & Workflow Solutions**
 
-## Core Values
+-   Business Process Analysis
+-   Workflow Design & Automation
+-   Business Process Automation (BPA)
+-   Digital Forms & Workflow Solutions
+-   Document Management Systems
+-   Approval & Case Management Systems
+-   Enterprise Portal Solutions
+-   Business Dashboards & Analytics
+-   Performance Monitoring & Reporting
 
--   Quality
--   Integrity
--   Innovation
--   Customer Success
--   Long-term Partnerships
+**Cloud & Infrastructure Solutions**
 
-# 3. Website Goals
-
-The visitor should understand within 10 seconds:
-
--   Who Qarsam is.
--   What Qarsam does.
--   Why Qarsam is different.
--   How to contact Qarsam.
-
-Primary CTA
-
-**Chat on WhatsApp**
-
-Secondary CTA
-
-**Request a Free Quote**
-
-# 4. Technology Stack
-
-Frontend
-
--   Next.js (Latest Stable)
--   TypeScript
--   Tailwind CSS
-
-Deployment
-
--   Linux VPS
--   Nginx
--   Node.js
-
-Forms
-
--   Email Integration
--   WhatsApp Integration
-
-SEO
-
--   Server-side Rendering
--   Metadata
--   Sitemap
--   robots.txt
--   Structured Data
-
-Analytics
-
--   Google Analytics
--   Google Search Console
-
-# 5. Design Principles
-
-The design shall be:
-
-Minimal
-
-Modern
-
-Professional
-
-Fast
-
-Elegant
-
-Responsive
-
-Accessible
-
-Avoid:
-
--   Heavy animations
--   Video backgrounds
--   Auto-playing media
--   Visual clutter
--   Long paragraphs
--   Stock office photos
-
-# 6. Color Palette
-
-Primary
-
-Deep Navy / Charcoal
-
-Secondary
-
-White
-
-Accent
-
-Electric Blue
-
-Success
-
-WhatsApp Green
-
-Use colors sparingly.
-
-Whitespace shall be a major design element.
-
-# 7. Typography
-
-Modern sans-serif fonts.
-
-Large headings.
-
-Comfortable spacing.
-
-Readable body text.
-
-Excellent mobile readability.
-
-# 8. Website Structure
-
-The website shall initially consist of a single-page experience with anchored sections.
-
-Sections:
-
-1.  Hero
-2.  Services
-3.  Solutions
-4.  Technologies
-5.  Why Choose Qarsam
-6.  Development Process
-7.  FAQ
-8.  Contact
-9.  Footer
-
-Future pages may include Portfolio, Blog, Careers, and Case Studies.
-
-# 9. Homepage Sections
-
-## Hero
-
-Headline
-
-Short value proposition
-
-Primary CTA
-
-Secondary CTA
-
-Professional illustration
-
-Trust indicators
-
-## Services
-
-Display service categories.
-
-### Software Development
-
--   Custom Software
--   Enterprise Applications
--   Web Applications
--   Mobile Applications
-
-### Web Development
-
--   Business Websites
--   Corporate Websites
--   Landing Pages
--   Custom Websites
-
-### WordPress Solutions
-
--   WordPress Development
--   Theme Customization
--   Plugin Development
--   Plugin Customization
--   WooCommerce
--   Website Maintenance
--   Performance Optimization
-
-### E-Commerce
-
+-   Cloud Migration
+-   Cloud Infrastructure Design
+-   Linux Server Administration
+-   Web Server Deployment
+-   VPS & Dedicated Server Management
+-   Network Infrastructure Solutions
+-   Backup & Disaster Recovery Planning
+
+**WordPress Development & Management**
+
+-   WordPress Website Development
+-   Custom WordPress Theme Development
+-   Custom Plugin Development
+-   WooCommerce Development
+-   WordPress Maintenance & Support
+-   WordPress Performance Optimization
+-   WordPress Security Hardening
+-   Website Migration & Management
+-   Managed WordPress Hosting
+
+**Artificial Intelligence & Intelligent Automation**
+
+-   AI Integration for Business Applications
+-   AI-Powered Business Automation
+-   Intelligent Chatbots & Virtual Assistants
+-   AI Workflow Automation
+-   Custom AI Solutions
+-   Prompt Engineering & AI Consulting
+
+**Managed IT Services & Cybersecurity**
+
+-   Website Security
+-   Security Audits
+-   Performance Monitoring
+-   Preventive Maintenance
+-   Managed IT Services
+-   Technical Support
+-   System Monitoring
+-   Software Maintenance
+
+**Digital Experience & E-Commerce**
+
+-   Corporate Website Development
+-   E-Commerce Solutions
 -   WooCommerce Stores
--   Custom E-Commerce
--   Payment Integration
+-   Website Redesign & Modernization
+-   Landing Pages
+-   Website Optimization
+-   Search Engine Optimization (SEO)
 
-### Hosting & Cloud
+**2.3 Industries We Serve**
 
--   VPS Hosting
--   Linux Servers
--   Domain Setup
--   SSL
--   Email Hosting
--   Cloudflare
--   Website Migration
+-   Government Organizations
+-   Public Sector
+-   Small & Medium Businesses
+-   Large Enterprises
+-   Educational Institutions
+-   Healthcare Organizations
+-   Logistics & Transportation
+-   Manufacturing
+-   Financial Services
+-   Retail & Commerce
+-   Professional Services
 
-### Networking & Infrastructure
+**2.4 Business Positioning**
 
--   Network Design
--   MikroTik Configuration
--   VPN
--   Firewall
--   Server Deployment
--   Network Security
--   IT Consultancy
+Qarsam is a **Software Engineering, IT Consulting, and Digital Transformation** company that helps organizations solve complex business challenges through innovative technology solutions.
 
-### Digital Marketing
+Rather than simply developing software, Qarsam works closely with clients to understand their business objectives, operational processes, and long-term vision before recommending the most appropriate technology strategy.
 
--   SEO
--   Google Ads
--   Facebook Ads
--   Instagram Ads
--   YouTube Ads
+Every engagement begins with business understanding rather than technology selection. By analyzing existing workflows, identifying operational inefficiencies, and evaluating organizational goals, Qarsam designs practical, scalable, and future-ready solutions that deliver measurable business value.
 
-# 10. Solutions We Build
+Qarsam believes that technology should simplify business operations, improve productivity, strengthen decision-making, and enable sustainable growth—not introduce unnecessary complexity.
 
-This section highlights capabilities only.
+Whether developing custom software, automating business processes, implementing enterprise platforms, modernizing legacy systems, or providing strategic IT consultation, Qarsam remains focused on helping clients achieve tangible business outcomes through intelligent use of technology.
 
-Examples:
+Qarsam is committed to building long-term client relationships based on trust, technical excellence, innovation, and continuous improvement, serving as a strategic technology partner throughout every stage of the digital transformation journey.
 
--   HR Management Systems
--   Inventory Management Systems
--   Medical Management Systems
--   Visitor Management Systems
--   Permit Management Systems
--   Learning Management Systems
--   CRM Solutions
--   ERP Systems
--   Booking Systems
--   School Management Systems
--   Corporate Websites
--   E-Commerce Platforms
--   Restaurant Systems
--   Property Management Systems
+**Our Approach**
 
-No confidential client names or government projects shall be referenced.
+Every successful solution follows a structured business-first methodology:
 
-# 11. Technologies
+**Understand the Business**
 
-Frontend
+We begin by understanding the client's organization, objectives, operational challenges, existing workflows, and long-term vision.
 
-React
+**Analyze & Recommend**
 
-Next.js
+Our consultants evaluate current processes, identify opportunities for improvement, and recommend the most effective technology strategy based on business requirements rather than technology trends.
 
-TypeScript
+**Design & Deliver**
 
-Backend
+We design, develop, implement, and support secure, scalable, and user-centric solutions that align with organizational goals and industry best practices.
 
-Node.js
+**Optimize & Grow**
 
-PHP
+Technology evolves continuously. We provide ongoing support, optimization, maintenance, and strategic guidance to ensure every solution continues delivering value as the business grows.
 
-Databases
+**2.4 Our Value Proposition**
 
-PostgreSQL
+Qarsam empowers organizations to transform their operations through innovative, secure, and scalable technology solutions. Our focus extends beyond software development—we help businesses improve efficiency, automate processes, strengthen digital capabilities, and achieve sustainable growth.
 
-MySQL
+By combining business insight with technical expertise, we deliver practical solutions that address real operational challenges and create measurable long-term value.
 
-CMS
+Organizations partnering with Qarsam can expect to:
 
-WordPress
+-   Digitize and modernize business operations.
+-   Automate manual and repetitive workflows.
+-   Improve operational efficiency and productivity.
+-   Integrate disconnected systems into a unified digital ecosystem.
+-   Enhance collaboration and decision-making through centralized information.
+-   Reduce operational costs through intelligent automation.
+-   Strengthen security, reliability, and system scalability.
+-   Modernize legacy applications and infrastructure.
+-   Accelerate digital transformation with future-ready technology solutions.
 
-WooCommerce
+**Our Commitment**
 
-Infrastructure
+At Qarsam, we believe successful technology projects begin with understanding the business—not selecting the technology.
 
-Linux
+We work closely with our clients to analyze their objectives, understand their operational workflows, identify opportunities for improvement, and recommend the most suitable technology strategy before any development begins.
 
-Nginx
+Our commitment is to deliver solutions that are practical, secure, scalable, and aligned with each client's long-term business goals while providing continuous support as their organization grows.
 
-Cloudflare
+**Our Promise**
 
-VPS Hosting
+We don't simply develop software.
 
-Networking
+We partner with organizations to understand their challenges, design the right technology strategy, and deliver intelligent solutions that create measurable business value.
 
-MikroTik
+Every project is guided by four principles:
 
-VPN
+-   Understand the Business
+-   Design the Right Solution
+-   Deliver with Excellence
+-   Support Long-Term Growth
 
-Firewall Solutions
+**Core Message**
 
-# 12. Why Choose Qarsam
+-   Tell us your business challenge. We'll recommend the right technology solution.
+-   Tell us your workflow. We'll transform it into an efficient digital process.
+-   Together, let's build smarter, faster, and future-ready businesses.
 
-Key differentiators:
+**3. Landing Page Structure**
 
--   Affordable Pricing
--   Modern Technologies
--   Responsive Design
--   Secure Development
--   End-to-End Solutions
--   Fast Delivery
--   Transparent Communication
--   Long-Term Support
+**3.1 Overview**
 
-# 13. Development Process
+The Qarsam website shall be designed as a modern, premium, single-page corporate landing website that communicates the company's expertise, establishes credibility, and converts visitors into potential clients.
+
+Unlike traditional multi-page corporate websites, the landing page shall provide a complete business narrative through a carefully structured sequence of sections that guide visitors from understanding their business challenges to requesting a consultation.
+
+Each section shall build upon the previous one, creating a logical user journey that communicates Qarsam's expertise, demonstrates its capabilities, and reinforces its value as a trusted technology partner.
+
+The overall design shall prioritize clarity, visual appeal, responsiveness, and ease of navigation while maintaining a strong focus on lead generation.
+
+**3.2 User Journey**
+
+The landing page shall guide visitors through the following journey:
+
+1.  Introduce Qarsam and establish a strong first impression.
+2.  Highlight common business and operational challenges.
+3.  Demonstrate how Qarsam addresses those challenges.
+4.  Present services and technology solutions.
+5.  Build trust through expertise, methodology, and experience.
+6.  Encourage visitors to initiate a Let's Solve Your Business Challenges.
+
+Each section shall naturally encourage visitors to continue exploring the website without overwhelming them with excessive information.
+
+**3.3 Landing Page Sections**
+
+**Hero Section**
+
+The Hero Section shall create an immediate and lasting first impression by clearly communicating Qarsam's identity, core expertise, and business value.
+
+It shall include:
+
+-   Primary headline
+-   Supporting statement
+-   Call-to-Action buttons
+-   Professional visual or illustration
+-   Brief value proposition
+
+The Hero Section should immediately answer three questions:
+
+-   Who is Qarsam?
+-   What problems does Qarsam solve?
+-   Why should visitors continue exploring?
+
+e.g. We help organizations modernize operations, automate workflows, and build scalable digital solutions.
+
+**Business Challenges**
+
+This section shall help visitors recognize common operational problems experienced by modern organizations.
+
+Typical challenges may include:
+
+-   Manual and paper-based operations
+-   Repetitive business processes
+-   Legacy software
+-   Disconnected systems
+-   Spreadsheet dependency
+-   Slow approval workflows
+-   Limited reporting and visibility
+-   Inefficient collaboration
+
+The objective is to help visitors identify with these challenges before presenting Qarsam's solutions.
+
+**Our Solutions**
+
+Rather than simply listing technologies, this section shall demonstrate how Qarsam transforms business challenges into efficient digital solutions.
+
+Solutions may include:
+
+-   Digital Transformation
+-   Business Process Automation
+-   Enterprise Software
+-   Workflow Management
+-   Cloud Solutions
+-   System Integration
+-   AI-Enabled Business Solutions
+-   IT Modernization
+
+Each solution should emphasize business outcomes rather than technical implementation.
+
+**Our Services**
+
+This section shall present Qarsam's service portfolio in a clear, organized, and visually engaging manner.
+
+Services shall be grouped into logical business categories, including:
+
+-   Software Engineering
+-   WordPress Solutions
+-   IT Consulting
+-   Business Process Automation
+-   Cloud & Infrastructure
+-   AI & Intelligent Solutions
+-   Cybersecurity & Managed IT Services
+-   Digital Presence & E-Commerce
+
+Each category should briefly communicate its business value while allowing visitors to understand the breadth of Qarsam's capabilities.
+
+**Why Choose Qarsam**
+
+This section shall reinforce confidence by presenting the qualities that distinguish Qarsam from conventional software development companies.
+
+Key strengths include:
+
+-   Business-first consulting approach
+-   Technology-independent recommendations
+-   Experienced engineering team
+-   Secure and scalable solutions
+-   Modern development practices
+-   Long-term technical partnership
+-   Client-focused service delivery
+
+**Our Process**
+
+The development methodology shall be presented as a simple and transparent business journey.
+
+The recommended process includes:
 
 1.  Consultation
-2.  Requirement Analysis
-3.  Planning
-4.  Design
-5.  Development
-6.  Testing
-7.  Deployment
-8.  Support
+2.  Business Analysis
+3.  Solution Strategy
+4.  Design & Development
+5.  Testing & Deployment
+6.  Support & Continuous Improvement
 
-# 14. FAQ
+This section should demonstrate professionalism while reassuring clients that every project follows a structured methodology.
 
-Typical questions:
+**Technology Expertise**
 
--   How much does a website cost?
--   How long does development take?
--   Do you provide hosting?
--   Do you develop mobile apps?
--   Do you redesign websites?
--   Do you provide maintenance?
--   Can you upgrade existing systems?
--   Can you build custom business software?
+This section shall present the technologies, frameworks, platforms, and tools used by Qarsam.
 
-# 15. Contact Section
+The objective is to establish technical credibility without overwhelming visitors with excessive technical detail.
 
-Display:
+Technologies should be grouped into logical categories and presented using a clean, modern visual style.
 
+**Frequently Asked Questions**
+
+This section shall answer common questions regarding:
+
+-   Services
+-   Project timelines
+-   Development process
+-   Technologies
+-   Support
+-   Maintenance
+-   Pricing approach
+-   Consultation process
+
+The content should reduce uncertainty and encourage visitors to proceed with contacting Qarsam.
+
+**Let's Solve Your Business Challenges**
+
+The landing page shall conclude with a strong consultation section that encourages organizations to discuss their business challenges with Qarsam.
+
+This section shall include:
+
+-   Consultation-focused headline
+-   Business-oriented message
+-   Contact form
+-   Phone (+923396520107)
+-   WhatsApp (+923396520107)
+-   Office information
+-   Primary Call-to-Action
+
+The emphasis should be on starting a business conversation rather than merely collecting contact information.
+
+**3.4 Secondary Pages**
+
+To maintain simplicity and maximize visitor engagement, the website shall contain only a limited number of dedicated pages outside the main landing page.
+
+These include:
+
+-   **Blog** – Articles, insights, company updates, and technology trends.
+-   **Privacy Policy** – Information regarding data collection, privacy, and user rights.
+-   **Terms & Conditions** – Website usage policies and legal terms.
+-   **404 Error Page** – A branded error page that helps users return to the landing page.
+
+All primary business information, services, solutions, and consultation features shall remain within the single landing page to provide a seamless user experience and improve lead conversion.
+
+**4. User Experience & Design Principles**
+
+**4.1 Design Philosophy**
+
+The website shall present Qarsam as a premium technology consulting company through a modern, elegant, and business-oriented visual identity.
+
+The overall experience shall emphasize simplicity, clarity, professionalism, and trust while avoiding unnecessary visual complexity.
+
+Every design element should support communication of business value rather than decorative aesthetics.
+
+**4.2 Visual Style**
+
+The interface shall adopt a clean and contemporary appearance featuring:
+
+-   Light-themed user interface
+-   Spacious layouts
+-   Balanced typography
+-   Professional color palette
+-   Modern iconography
+-   High-quality illustrations where appropriate
+-   Consistent visual hierarchy
+
+The design should feel approachable, premium, and suitable for both corporate and government audiences.
+
+**4.3 User Journey**
+
+Visitors should naturally progress through the website in the following sequence:
+
+1.  Understand who Qarsam is.
+2.  Recognize their own business challenges.
+3.  Discover relevant services and solutions.
+4.  Build confidence through Qarsam's expertise.
+5.  Understand the development process.
+6.  Contact Qarsam for consultation.
+
+Every section shall support this journey and progressively strengthen visitor confidence.
+
+**4.4 Navigation**
+
+The website shall provide intuitive navigation through:
+
+-   Sticky header
+-   Smooth scrolling
+-   Active menu highlighting
+-   Mobile-friendly navigation
+-   Clearly visible call-to-action buttons
+
+Navigation shall remain simple and minimize unnecessary interactions.
+
+**4.5 Responsive Design**
+
+The website shall provide a consistent experience across:
+
+-   Desktop computers
+-   Laptops
+-   Tablets
+-   Mobile devices
+
+Layouts, typography, spacing, and interactive elements shall adapt appropriately to different screen sizes while maintaining visual consistency.
+
+**4.6 Accessibility**
+
+The website shall follow modern accessibility practices by providing:
+
+-   Readable typography
+-   Adequate color contrast
+-   Keyboard-accessible navigation
+-   Semantic HTML structure
+-   Descriptive alternative text for images
+-   Clearly distinguishable interactive elements
+
+**4.7 Performance Expectations**
+
+The website shall be optimized to deliver:
+
+-   Fast page loading
+-   Smooth animations
+-   Efficient image loading
+-   Minimal layout shifts
+-   Excellent responsiveness
+-   High Lighthouse scores for Performance, Accessibility, Best Practices, and SEO
+
+These principles shall guide all design and development decisions throughout the project.
+
+**5. Functional & Non-Functional Requirements**
+
+**5.1 Functional Requirements**
+
+The website shall provide the following functional capabilities to ensure an engaging, informative, and business-oriented user experience.
+
+**Landing Page**
+
+-   Present all primary business information within a single-page layout.
+-   Support smooth scrolling between sections.
+-   Display a sticky navigation menu that remains accessible throughout the browsing experience.
+-   Highlight the currently active navigation section while scrolling.
+-   Include clear and prominent Call-to-Action (CTA) buttons throughout the page.
+
+**Contact & Consultation**
+
+The website shall provide an integrated contact section that enables visitors to initiate communication with Qarsam.
+
+The contact section shall include:
+
+-   Contact form
+-   Phone number (+923396520107)
+-   WhatsApp contact (+923396520107)
+-   Office location
+-   Let's Solve Your Business Challenges message
+
+Form submissions shall be validated before submission and provide appropriate success or error feedback.
+
+**Blog**
+
+The website shall include a dedicated blog section for publishing articles, technology insights, company updates, and industry knowledge.
+
+The blog shall support:
+
+-   Blog listing page
+-   Individual article pages
+-   Featured image
+-   Publication date
+-   Search engine friendly URLs
+-   SEO metadata
+-   Social sharing compatibility
+
+**Search Engine Optimization**
+
+The website shall support modern SEO practices including:
+
+-   Optimized page titles
+-   Meta descriptions
+-   Open Graph metadata
+-   Twitter Cards
+-   XML Sitemap
+-   Robots.txt
+-   Structured data where applicable
+-   Clean semantic URLs
+
+**Social Integration**
+
+The website shall provide quick access to official communication channels including:
+
+-   LinkedIn
+-   Facebook
+-   Instagram
 -   WhatsApp
 -   Email
--   Contact Form
 
-CTA:
+Additional platforms may be incorporated as the company's digital presence expands.
 
->   Let’s discuss your next project.
+**Error Handling**
 
-The WhatsApp button shall be prominently displayed.
+The website shall provide a custom-designed 404 page that maintains the overall branding and provides users with navigation back to the landing page.
 
-# 16. Footer
+**5.2 Non-Functional Requirements**
 
-Include:
+**Performance**
 
-Company
+The website shall deliver fast loading times through efficient coding practices, optimized assets, image optimization, lazy loading, and modern rendering techniques.
 
-Services
+Performance shall remain consistent across desktop and mobile devices.
 
-Quick Links
+**Responsiveness**
 
-Contact
+The website shall provide a consistent user experience across all commonly used screen sizes, including desktop computers, laptops, tablets, and smartphones.
 
-Social Media
+**Usability**
 
-Copyright
+The interface shall be intuitive and easy to navigate for both technical and non-technical users.
 
-Privacy Policy
+Information shall be organized logically with clear visual hierarchy and minimal learning curve.
 
-# 17. User Experience Requirements
+**Accessibility**
 
-The website shall:
+The website shall follow recognized accessibility best practices by providing:
 
--   Load in under 2 seconds on broadband.
--   Be fully responsive.
--   Support keyboard navigation.
--   Use smooth but subtle animations.
--   Keep navigation intuitive.
--   Avoid excessive scrolling before the first call-to-action.
+-   Semantic HTML
+-   Keyboard navigation support
+-   Readable typography
+-   Sufficient color contrast
+-   Alternative text for images
+-   Accessible form controls
 
-# 18. SEO Requirements
+**Security**
 
-Each section shall be optimized for keywords related to:
+The website shall implement modern web security practices including:
 
--   Software Development
--   Web Development
--   WordPress Development
--   WooCommerce Development
--   Mobile App Development
--   VPS Hosting
--   Cloud Hosting
--   Website Development Pakistan
--   Custom Software Development
--   Digital Solutions
+-   HTTPS support
+-   Secure form handling
+-   Input validation
+-   Protection against common web vulnerabilities
+-   Secure handling of user-submitted information
 
-Generate:
+**Maintainability**
 
--   XML Sitemap
--   robots.txt
--   Open Graph metadata
--   Twitter Card metadata
--   Structured Data (Organization and Local Business)
+The application shall be developed using a modular architecture that supports future enhancements without major restructuring.
 
-# 19. Performance Requirements
+Reusable components and consistent coding standards shall be maintained throughout the project.
 
--   Google Lighthouse score above 95 for Performance.
--   Accessibility score above 95.
--   Best Practices score above 95.
--   SEO score above 95.
+**Scalability**
 
-Optimize:
+The website architecture shall support future expansion, including additional services, landing pages, blog content, multilingual support, and integration with external platforms.
 
--   Images
--   Fonts
--   JavaScript bundles
--   CSS
--   Lazy loading
+**Compatibility**
 
-# 20. Future Enhancements
+The website shall function consistently on all major modern browsers including:
 
-The architecture shall support future addition of:
+-   Google Chrome
+-   Microsoft Edge
+-   Mozilla Firefox
+-   Safari
 
--   Portfolio
--   Client Testimonials
--   Blog
--   Careers
--   Customer Portal
--   Knowledge Base
--   Live Chat
--   AI Assistant
--   Multi-language Support
--   Online Project Cost Estimator
+**6. Technical Architecture & Development Standards**
 
-# 21. Success Criteria
+**6.1 Technology Architecture**
 
-The website shall be considered successful when it:
+The Qarsam website shall be developed using modern, industry-standard technologies that ensure long-term maintainability, scalability, security, high performance, and future extensibility.
 
--   Clearly communicates Qarsam’s services within the first screen.
--   Encourages visitors to contact Qarsam through WhatsApp or the contact form.
--   Reflects a modern, trustworthy, and professional brand.
--   Is easy to maintain and expand.
--   Performs well across desktop and mobile devices.
--   Serves as a scalable foundation for Qarsam’s future digital presence.
+The solution shall utilize a modern JavaScript/TypeScript technology stack based on the React ecosystem and follow current best practices for enterprise web application development.
 
-# End of Document
+| **Component**          | **Technology**                  |
+|------------------------|---------------------------------|
+| Frontend Framework     | Next.js (Latest Stable Version) |
+| Programming Language   | TypeScript                      |
+| UI Library             | React                           |
+| Styling Framework      | Tailwind CSS                    |
+| Runtime Environment    | Node.js                         |
+| Version Control        | Git & GitHub                    |
+| Deployment Environment | Linux-based Server or VPS       |
 
-**Version 1.0 – Approved for AI-Assisted Development**
+**6.2 Development Principles**
+
+The website shall be developed in accordance with modern software engineering practices to ensure maintainability, scalability, and code quality.
+
+Development shall adhere to the following principles:
+
+-   Modular, component-based architecture.
+-   Reusable and maintainable UI components.
+-   Clean, readable, and well-structured source code.
+-   Consistent naming conventions and coding standards.
+-   Separation of concerns across application layers.
+-   Responsive-first development approach.
+-   Accessibility-conscious design and implementation.
+-   Security-by-design principles.
+-   Performance optimization throughout the development lifecycle.
+-   Search Engine Optimization (SEO) best practices by default.
+
+**6.3 Design Standards**
+
+The website shall maintain a consistent visual identity across all sections through standardized design principles.
+
+The design system shall provide consistency for:
+
+-   Typography
+-   Color palette
+-   Layout and spacing
+-   Buttons and interactive elements
+-   Cards and content blocks
+-   Forms and input controls
+-   Icons and illustrations
+-   Animations and transitions
+-   Section layouts
+-   Responsive behavior
+
+Every interface element shall contribute to a clean, professional, modern, and recognizable corporate identity.
+
+**6.4 Code Quality Standards**
+
+The project shall maintain high code quality through modern development practices and automated quality assurance.
+
+The implementation shall include:
+
+-   Type-safe development using TypeScript.
+-   Reusable and composable components.
+-   Consistent code formatting and styling.
+-   Static code analysis and linting compliance.
+-   Production-ready builds with zero critical warnings or errors.
+-   Logical project structure and meaningful file organization.
+-   Well-documented and maintainable source code.
+-   Version-controlled development using Git.
+
+**6.5 Performance & Optimization**
+
+The website shall be optimized to deliver a fast, responsive, and reliable user experience across desktop and mobile devices.
+
+Performance optimization shall include, where applicable:
+
+-   Server-side rendering (SSR) and static site generation (SSG).
+-   Optimized image delivery.
+-   Lazy loading of non-critical resources.
+-   Code splitting and dynamic imports.
+-   Asset minification and compression.
+-   Efficient font loading.
+-   Optimized caching strategies.
+-   Minimal JavaScript execution.
+-   Core Web Vitals optimization.
+
+**6.6 Deployment & Hosting**
+
+The website shall be deployable on a modern Linux-based hosting environment capable of running Node.js applications.
+
+The deployment architecture shall support:
+
+-   Secure HTTPS communication.
+-   Production-ready application builds.
+-   Environment-based configuration management.
+-   Git-based deployment workflows.
+-   Reverse proxy support.
+-   Automated application restart following deployment.
+-   Logging and error monitoring.
+-   Backup and recovery procedures.
+-   Future migration to cloud or containerized infrastructure without significant redevelopment.
+
+The deployment architecture shall be designed to ensure reliable production operation, simplified maintenance, and seamless future enhancements.
+
+**7. Implementation Guidelines**
+
+**7.1 Design Philosophy**
+
+The Qarsam website shall reflect the identity of a modern Software Engineering, IT Consulting, and Digital Transformation company. The overall presentation should emphasize professionalism, simplicity, trust, and innovation while maintaining a clean and elegant visual appearance.
+
+The design shall avoid unnecessary visual complexity, excessive animations, or distracting elements. Every section should communicate business value clearly and encourage visitors to engage with Qarsam's services.
+
+**7.2 User-Centric Approach**
+
+The website shall be designed from the visitor's perspective.
+
+Rather than emphasizing technologies or technical terminology, the content shall focus on solving business challenges and explaining how Qarsam can help organizations improve efficiency through modern digital solutions.
+
+Visitors should quickly understand:
+
+-   What Qarsam does.
+-   What problems Qarsam solves.
+-   Why Qarsam is different.
+-   How Qarsam works.
+-   How to initiate a consultation.
+
+**7.3 Visual Identity**
+
+The visual identity shall project a premium corporate image through:
+
+-   Clean and spacious layouts.
+-   Professional typography.
+-   Consistent spacing.
+-   Modern iconography.
+-   High-quality illustrations where appropriate.
+-   Balanced use of colors.
+-   Subtle animations and transitions.
+-   Consistent branding across all sections.
+
+The website shall use a light-themed interface that feels modern, approachable, and suitable for corporate and government organizations.
+
+**7.4 Content Guidelines**
+
+Website content shall remain concise, business-oriented, and easy to understand.
+
+Technical terminology should be used only where appropriate, while the primary messaging should communicate business outcomes and organizational benefits.
+
+Headings, descriptions, and calls-to-action should encourage visitors to continue exploring the website and ultimately request a consultation.
+
+**7.5 Development Approach**
+
+Development shall follow an incremental milestone-based approach.
+
+Each milestone shall be independently reviewed and tested before proceeding to the next phase to ensure consistent quality and maintain project stability.
+
+Existing project architecture shall be preserved wherever practical, with improvements implemented through reusable components and clean engineering practices rather than unnecessary restructuring.
+
+**7.6 Quality Assurance**
+
+Every development milestone shall be validated before completion.
+
+Validation shall include:
+
+-   Functional testing.
+-   Responsive testing.
+-   Cross-browser compatibility.
+-   Performance verification.
+-   Accessibility review.
+-   Production build verification.
+-   Code quality checks.
+
+Only verified and stable changes shall be considered complete.
+
+**8. Conclusion**
+
+The Qarsam corporate website is intended to serve as the company's primary digital presence, presenting its expertise in Software Engineering, IT Consulting, and Digital Transformation through a modern, professional, and business-focused online experience.
+
+This Website Requirements & Design Specification (WRDS) establishes the functional requirements, design principles, technical standards, and implementation guidelines required to deliver a high-quality corporate website that aligns with Qarsam's long-term vision.
+
+The website shall prioritize clarity, usability, performance, accessibility, and lead generation while maintaining a clean and maintainable architecture. Every design and development decision should reinforce Qarsam's position as a trusted technology partner capable of understanding business challenges and delivering practical digital solutions.
+
+This document serves as the authoritative reference for all future design, development, testing, and enhancement activities, ensuring that the website evolves consistently while preserving its strategic objectives, brand identity, and technical quality.
