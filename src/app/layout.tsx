@@ -5,6 +5,9 @@ import { siteConfig } from "@/config/site";
 import { Providers } from "@/lib/providers";
 import "./globals.css";
 
+const OG_DESCRIPTION =
+  "Qarsam is a software engineering and IT consulting partner helping businesses modernize operations, automate workflows, and build scalable digital solutions — including custom software, web development, cloud infrastructure, and AI-enabled automation.";
+
 export const metadata: Metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
@@ -27,12 +30,12 @@ export const metadata: Metadata = {
     url: siteConfig.url,
     siteName: siteConfig.name,
     title: siteConfig.title,
-    description: "We build modern digital solutions that help businesses grow.",
+    description: OG_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.title,
-    description: "We build modern digital solutions that help businesses grow.",
+    description: OG_DESCRIPTION,
   },
   robots: {
     index: true,

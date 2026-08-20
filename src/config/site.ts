@@ -10,9 +10,9 @@ export const siteConfig = {
   email: "qarsam.com@gmail.com",
   phone: "+923396520107",
   social: {
-    linkedin: "#",
-    facebook: "#",
-    instagram: "#",
+    linkedin: "https://www.linkedin.com/in/qarsam-com-34862642b/",
+    facebook: "https://www.facebook.com/profile.php?id=61593421386531",
+    instagram: "https://www.instagram.com/qarsam.com2026/",
     whatsapp: "https://wa.me/923396520107",
   } satisfies Record<string, string>,
   footerLinks: {

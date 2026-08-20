@@ -59,6 +59,7 @@ export default function Footer() {
                 <Link
                   href={link.href}
                   aria-label={link.ariaLabel ?? link.label}
+                  {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="inline-flex items-center rounded-full border border-navy-800 px-3.5 py-1.5 text-xs font-medium text-navy-300 transition-colors hover:border-electric-500 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
                 >
                   {link.label}
